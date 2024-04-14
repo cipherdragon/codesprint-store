@@ -1,8 +1,8 @@
-name: Deploy to dev server
+name: Deploy to production
 
 on:
     push:
-        branches: [dev-server]
+        branches: [main]
 
 jobs:
     build:
@@ -33,11 +33,11 @@ jobs:
 
             - name: Deploy
               run: | 
-                rsync -avz --delete .next/ deploybot@ieee.iit.ac.lk:/opt/codesprint-store-dev/.next
-                rsync -avz --delete public/ deploybot@ieee.iit.ac.lk:/opt/codesprint-store-dev/public
-                ssh deploybot@ieee.iit.ac.lk "cd /opt/codesprint-store-dev && rm -f package.json gcloud-secret.json yarn.lock .env.local"
-                scp package.json deploybot@ieee.iit.ac.lk:/opt/codesprint-store-dev/package.json
-                scp yarn.lock deploybot@ieee.iit.ac.lk:/opt/codesprint-store-dev/yarn.lock
-                scp .env.local deploybot@ieee.iit.ac.lk:/opt/codesprint-store-dev/.env.local
-                scp gcloud-secret.json deploybot@ieee.iit.ac.lk:/opt/codesprint-store-dev/gcloud-secret.json
-                ssh deploybot@ieee.iit.ac.lk "cd /opt/codesprint-store-dev && yarn install --frozen-lockfile && pm2 restart codesprint-store-dev"
+                rsync -avz --delete .next/ deploybot@ieee.iit.ac.lk:/opt/codesprint-store/.next
+                rsync -avz --delete public/ deploybot@ieee.iit.ac.lk:/opt/codesprint-store/public
+                ssh deploybot@ieee.iit.ac.lk "cd /opt/codesprint-store && rm -f package.json gcloud-secret.json yarn.lock .env.local"
+                scp package.json deploybot@ieee.iit.ac.lk:/opt/codesprint-store/package.json
+                scp yarn.lock deploybot@ieee.iit.ac.lk:/opt/codesprint-store/yarn.lock
+                scp .env.local deploybot@ieee.iit.ac.lk:/opt/codesprint-store/.env.local
+                scp gcloud-secret.json deploybot@ieee.iit.ac.lk:/opt/codesprint-store/gcloud-secret.json
+                ssh deploybot@ieee.iit.ac.lk "cd /opt/codesprint-store && yarn install --frozen-lockfile && pm2 restart codesprint-store"
