@@ -19,7 +19,8 @@ jobs:
 
             - name: Populating secrets
               run: | 
-                printf "%s" "${{ secrets.GCLOUD_SECRET }}" > gcloud-secret.json
+                echo "${{ secrets.GCLOUD_SECRET }}" > /tmp/gcloud-secret.base64
+                base64 --decode /tmp/gcloud-secret.base64 > gcloud-secret.json
                 echo "GOOGLE_APPLICATION_CREDENTIALS=./gcloud-secret.json" > .env.local
                 echo "SPREADSHEET_ID=${{ secrets.SHEET_ID_DEV }}" >> .env.local
                 mkdir -p ~/.ssh
