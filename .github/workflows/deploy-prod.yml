@@ -15,7 +15,10 @@ jobs:
                   node-version: '20'
 
             - name: Installing dependencies
-              run: yarn install --frozen-lockfile
+              run: |
+                corepack enable
+                yarn set version berry
+                yarn install --immutable
 
             - name: Populating secrets
               run: | 
@@ -35,9 +38,10 @@ jobs:
               run: | 
                 rsync -avz --delete .next/ deploybot@ieee.iit.ac.lk:/opt/codesprint-store/.next
                 rsync -avz --delete public/ deploybot@ieee.iit.ac.lk:/opt/codesprint-store/public
-                ssh deploybot@ieee.iit.ac.lk "cd /opt/codesprint-store && rm -f package.json gcloud-secret.json yarn.lock .env.local"
+                ssh deploybot@ieee.iit.ac.lk "cd /opt/codesprint-store && rm -f package.json gcloud-secret.json yarn.lock .env.local .yarnrc.yml"
                 scp package.json deploybot@ieee.iit.ac.lk:/opt/codesprint-store/package.json
+                scp .yarnrc.yml deploybot@ieee.iit.ac.lk:/opt/codesprint-store/.yarnrc.yml
                 scp yarn.lock deploybot@ieee.iit.ac.lk:/opt/codesprint-store/yarn.lock
                 scp .env.local deploybot@ieee.iit.ac.lk:/opt/codesprint-store/.env.local
                 scp gcloud-secret.json deploybot@ieee.iit.ac.lk:/opt/codesprint-store/gcloud-secret.json
-                ssh deploybot@ieee.iit.ac.lk "cd /opt/codesprint-store && yarn install --frozen-lockfile && pm2 restart codesprint-store"
+                ssh deploybot@ieee.iit.ac.lk "cd /opt/codesprint-store && yarn set version berry && yarn install --immutable && pm2 restart codesprint-store"
