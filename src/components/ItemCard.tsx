@@ -7,6 +7,7 @@ export default function ItemCard({ data }: { data : ItemData }) {
 
         return (
             <div 
+                key={color}
                 className="color_palette border border-neutral-300" 
                 style={{ 
                     width: `${palette_size}px`,
