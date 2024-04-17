@@ -18,16 +18,34 @@
 
 body {
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-            to bottom,
+    background: linear-gradient(to bottom,
             transparent,
-            rgb(var(--background-end-rgb))
-        )
-        rgb(var(--background-start-rgb));
+            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+
+:root {
+    --header-height: 130px;
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        --header-height: 105px;
+    }
 }
 
 @layer utilities {
     .text-balance {
         text-wrap: balance;
+    }
+
+    .h-screen-except-header {
+        height: calc(100vh - var(--header-height));
+    }
+}
+
+@layer components {
+    .proper-padded-container {
+        @apply w-full px-[20px] xsm:px-[30px] max-w-[1300px] mx-auto box-border;
     }
 }
