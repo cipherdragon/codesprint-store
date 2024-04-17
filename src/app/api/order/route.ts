@@ -11,15 +11,16 @@ function calculatePrice(order_str : string, package_id : packages) {
 }
 
 function getInvoiceID() {
-    const codesprint_version = "8";
-    const month = (new Date().getMonth() + 1).toString().padStart(2, '0');
-    const date = new Date().getDate().toString().padStart(2, '0');
-    const hours = new Date().getHours().toString().padStart(2, '0');
-    const minutes = new Date().getMinutes().toString().padStart(2, '0');
-    const seconds = Date.now().toString().slice(-4);
-    const rand_num = Math.floor(Math.random() * 10).toString();
+    // Codesprint version + hex(last 6 digits of epoch time) + 2 random digits
+    // 8 + 2B3C + 4D --> 8A2B-3C4D | This is unique enough
 
-    return `${codesprint_version}-${month}${date}-${hours}${minutes}-${seconds}-${rand_num}`;
+    const codesprint_version = "8";
+    const epoch = (new Date().getTime() % Math.pow(10,6)).toString(16);
+    const rand_num_1 = Math.floor(Math.random() * 10).toString();
+    const rand_num_2 = Math.floor(Math.random() * 10).toString();
+
+    const raw_id = `${codesprint_version}${epoch}${rand_num_1}${rand_num_2}`.toUpperCase();
+    return `${raw_id.slice(0, 4)}-${raw_id.slice(4, 8)}`
 }
 
 function getOrderStr(orders: any[]) {
