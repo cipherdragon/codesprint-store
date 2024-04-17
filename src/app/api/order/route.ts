@@ -1,6 +1,7 @@
 import { google } from "googleapis";
 import { NextRequest } from "next/server";
 import { package_validators } from "./(package_validation)/package_validators";
+import awaitable from "@/util/asyncUtil";
 
 type packages = "combo" | "n/a";
 
@@ -78,18 +79,15 @@ export async function POST(request: NextRequest) {
     const auth = await google.auth.getClient({ scopes: ['https://www.googleapis.com/auth/spreadsheets'] });
     const sheets = google.sheets({ version: 'v4', auth });
 
-    try {
-        await sheets.spreadsheets.values.append({
-            spreadsheetId: process.env.SPREADSHEET_ID,
-            range: 'Order',
-            valueInputOption: 'USER_ENTERED',
-            requestBody: {
-                values: [[invoice_id, name, email, phone, address, `${price} LKR`, "Pending", package_id, order_str]]
-            }
-        });
-    } catch (error) {
-        return new Response(JSON.stringify(error), { status: 500 })
-    }
+    const [_, err3] = await awaitable(sheets.spreadsheets.values.append({
+        spreadsheetId: process.env.SPREADSHEET_ID,
+        range: 'Order',
+        valueInputOption: 'USER_ENTERED',
+        requestBody: {
+            values: [[invoice_id, name, email, phone, address, `${price} LKR`, "Pending", package_id, order_str]]
+        }
+    }));
 
-    return new Response(JSON.stringify({ invoice_id }), { status: 200});
+    if (err3) return new Response(JSON.stringify(err3), { status: 500 })
+    return new Response(JSON.stringify({ invoice_id }), { status: 200 });
 }
