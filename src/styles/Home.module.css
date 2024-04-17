@@ -1,0 +1,5 @@
+.hero {
+    @apply bg-[#1d1d1d] mb-[50px] rounded-2xl;
+
+    height: calc(100vh - var(--header-height) + 30px);
+}
