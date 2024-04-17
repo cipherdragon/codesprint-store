@@ -1,9 +1,9 @@
 import { google } from "googleapis";
 import { NextRequest } from "next/server";
-import { package_validators } from "./(package_validation)/package_validators";
+import { package_list, package_validators } from "./(package_validation)/package_validators";
 import awaitable from "@/util/asyncUtil";
 
-type packages = "combo" | "n/a";
+import { packages, GetParamsResult } from "./types";
 
 function calculatePrice(order_str : string, package_id : packages) {
     const [ validator, price_func ] = package_validators[package_id];
@@ -62,15 +62,52 @@ function getOrderStr(orders: any[]) {
     return order_str;
 }
 
-export async function POST(request: NextRequest) {
-    const requestBody = await request.json();
-
-    const orders = requestBody['order']!;
-    const name = requestBody['name']!;
-    const email = requestBody['email']!;
-    const address = requestBody['address']!;
-    const phone = "'" + requestBody['phone']!;
+function getParams(requestBody: any) : GetParamsResult {
+    const orders = requestBody['order'];
+    const name = requestBody['name']! as string;
+    const email = requestBody['email'];
+    const address = requestBody['address'];
+    const phone = "'" + requestBody['phone'];
     const package_id = requestBody['package_id'] as packages;
+
+    if (!orders || !name || !email || !address || !phone || !package_id)
+        return [null, "Missing required fields"];
+
+    // Name validation (only alphabets and spaces, 200 char limit)
+    if (!/^[a-zA-Z ]{1,200}$/.test(name))
+        return [null, "Invalid name"];
+
+    // Email validation (simple regex, 200 char limit no equals sign)
+    if (!/^[^=]{1,200}$/.test(email))
+        return [null, "Invalid email"];
+
+    // Address validation (1000 char limit, no equals sign)
+    if (!/^[^=]{1,1000}$/.test(address))
+        return [null, "Invalid address"];
+
+    // Phone validation (11 chars, starts with ' followed by 10 digits)
+    if (!/^'[0-9]{10}$/.test(phone))
+        return [null, "Invalid phone number"];
+
+    // Package ID validation (only 'combo' or 'n/a')
+    if (!package_list.includes(package_id))
+        return [null, "Invalid package ID"];
+
+    // Orders validation (array of objects, at least 1 such order)
+    if (!Array.isArray(orders) || orders.length === 0)
+        return [null, "Invalid orders"];
+
+    return [{name, email, phone, address, package_id, orders}, null]
+}
+
+export async function POST(request: NextRequest) {
+    const [requestBody, err] = await awaitable(request.json());
+    if (err) return new Response(JSON.stringify({ error: "Bad JSON" }), { status: 400 });
+
+    const [params, err2] = getParams(requestBody);
+    if (err2) return new Response(JSON.stringify({ error: err2 }), { status: 400 });
+
+    const { name, email, phone, address, package_id, orders } = params!;
     const invoice_id = getInvoiceID();
 
     const order_str = getOrderStr(orders); 

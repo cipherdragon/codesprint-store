@@ -60,3 +60,5 @@ export const package_validators = {
     "combo": [ package_combo, (_ : string) => 3000 ],
     "n/a": [ package_na, package_na_price],
 }
+
+export const package_list = ["combo", "n/a"];
