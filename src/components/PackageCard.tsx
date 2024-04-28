@@ -2,7 +2,7 @@ import type Package from "@/types/PackageData";
 
 export default function PackageCard({ data } : { data: Package } ) {
     const items = data.items.map((item) => 
-        <li className="mb-[5px] last:mb-0">1x {item.name}</li>
+        <li key={item.id} className="mb-[5px] last:mb-0">1x {item.name}</li>
     )
 
     return (
@@ -16,10 +16,10 @@ export default function PackageCard({ data } : { data: Package } ) {
                 alt="" />
             <div className="p-3 pt-[20px]">
                 <h3 className="text-xl font-bold">
-                    Explorer's Hoodie
+                    { data.name }
                 </h3>
                 <span className="block font-bold text-sm text-white opacity-55 mt-[8px]">
-                    1000 LKR
+                    { data.price } LKR
                 </span>
                 <ul className="mt-[15px] text-sm  font-bold opacity-90 bg-[#67ac844f]
                     p-3 rounded-2xl translate-x-[-50px] backdrop-blur-md shadow-lg 
