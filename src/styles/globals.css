@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+
+:root {
+    --header-height: 130px;
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        --header-height: 105px;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .h-screen-except-header {
+        height: calc(100vh - var(--header-height));
+    }
+}
+
+@layer components {
+    .proper-padded-container {
+        @apply w-full px-[20px] xsm:px-[30px] max-w-[1300px] mx-auto box-border;
+    }
+
+    .thin-line {
+        --center-color: #cecece;
+        background: linear-gradient(90deg, #000 0%, 
+            var(--center-color) 40%, var(--center-color) 60%, #000 100%);
+        height: 1px;
+    }
+}

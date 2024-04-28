@@ -1,22 +1,41 @@
 import { Metadata } from "next";
 import React from "react";
 
+import { Packages as package_list } from "@/db/Packages";
+import {Items as items_list} from "@/db/Items";
+
+import styles from "../styles/Home.module.css"
+import PackageCard from "@/components/PackageCard";
+import ItemCard from "@/components/ItemCard";
+
 export const metadata : Metadata = {
-  title: "Codesprint Store",
+    title: "Codesprint Store",
 }
 
 export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <main className="flex flex-col items-center justify-center flex-1 text-center">
-        <h1 className="text-6xl font-bold">
-          <span className="text-green-600">Launching</span> Soon !!!
-        </h1>
+    const packages = package_list.map((pkg) => {
+        return (
+            <PackageCard key={pkg.id} data={pkg} />
+        )
+    })
 
-        <p className="mt-3 text-2xl">
-          We are working hard to bring you our new site. Stay tuned!
-        </p>
-      </main>
-    </div>
-  );
+    return (
+        <>
+        <section className="proper-padded-container">
+            <div className={styles.hero}></div>
+        </section>
+        <section
+            className="proper-padded-container">
+                <div className="bg-[#ffffff22] rounded-2xl">
+                    <h2 className="p-[50px] text-4xl font-bold text-center py-6">
+                        Packages
+                    </h2>
+                    <div className="mx-auto w-fit flex gap-[20px] mt-[30px]
+                        flex-wrap items-center justify-center">
+                        { packages }
+                    </div>
+                </div>
+        </section>
+        </>
+    );
 }
