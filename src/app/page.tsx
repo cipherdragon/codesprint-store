@@ -13,18 +13,11 @@ export const metadata : Metadata = {
 }
 
 export default function Home() {
-    const package_cards = package_list.map(packageItem => 
-        <PackageCard data={packageItem} key={packageItem.id} />
-    );
-
-    const item_cards = items_list.map(item =>
-        <ItemCard data={item} key={item.id} />
-    );
-
-    const dull_package_card = 
-        <div className="pointer-events-none invisible min-[1248px]:hidden">
-            <PackageCard data={package_list[0]} />
-        </div>
+    const packages = package_list.map((pkg) => {
+        return (
+            <PackageCard key={pkg.id} data={pkg} />
+        )
+    })
 
     return (
         <>
@@ -33,32 +26,15 @@ export default function Home() {
         </section>
         <section
             className="proper-padded-container">
-            <div>
-                <h2 className="text-3xl mb-[5px] text-center text-neutral-200">
-                    Save with Packages
-                </h2>
-                <div className="thin-line mb-[30px]"></div>
-
-                <div 
-                    className="flex gap-5 gap-y-7 justify-center flex-wrap
-                        max-w-[550px] mx-auto min-[660px]:max-w-[590px] min-[1248px]:max-w-fit">
-                    { package_cards }
-                    { package_cards.length % 2 === 0 ? null : dull_package_card }
+                <div className="bg-[#ffffff22] rounded-2xl">
+                    <h2 className="p-[50px] text-4xl font-bold text-center py-6">
+                        Packages
+                    </h2>
+                    <div className="mx-auto w-fit flex gap-[20px] mt-[30px]
+                        flex-wrap items-center justify-center">
+                        { packages }
+                    </div>
                 </div>
-            </div>
-            <div className="mt-[30px] min-[680px]:mt-[70px]">
-                <h2 className="text-3xl mb-[5px] text-center text-neutral-200">
-                    Buy what you want! 
-                </h2>
-                <div className="thin-line mb-[30px]"></div>
-
-                <div 
-                    className="flex gap-5 gap-y-5 justify-center flex-wrap
-                        max-w-[550px] mx-auto min-[660px]:max-w-[590px] min-[1248px]:max-w-fit">
-                    { item_cards }
-                </div>
-            </div>
-            <div className="h-[30px]"></div>
         </section>
         </>
     );
