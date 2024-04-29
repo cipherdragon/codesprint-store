@@ -26,7 +26,8 @@ export default function Home() {
         </section>
         <section
             className="proper-padded-container">
-                <div className="bg-[#ffffff22] rounded-2xl">
+                <div className="bg-white bg-opacity-5 border border-white 
+                    border-opacity-15 backdrop-blur-md rounded-2xl">
                     <h2 className="p-[50px] text-4xl font-bold text-center py-6">
                         Packages
                     </h2>
