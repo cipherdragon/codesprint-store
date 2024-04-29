@@ -18,9 +18,10 @@
 
 body {
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom,
-            transparent,
-            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    background-color: hsl(190, 36%, 10%);
+    background-size: contain;
+    background-image: url("/bg.png");
+    background-attachment: fixed;
 }
 
 
