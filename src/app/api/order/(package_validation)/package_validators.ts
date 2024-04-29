@@ -1,3 +1,9 @@
+type package_validator = (order_str: string) => boolean;
+type pricing_function = (order_str: string) => number;
+interface PackageValidators {
+    [key : string]: [package_validator, pricing_function];
+}
+
 const prices = {
     hoodie: 2000,
     tshirt: 1000,
@@ -56,7 +62,8 @@ function package_na_price(order_str: string) {
     return price;
 }
 
-export const package_validators = {
+
+export const package_validators : PackageValidators = {
     "combo": [ package_combo, (_ : string) => 3000 ],
     "n/a": [ package_na, package_na_price],
 }

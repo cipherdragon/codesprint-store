@@ -4,4 +4,5 @@ export default interface ItemData {
     price: number;
     thumbnail: string;
     colors: string[];
+    sizes: string[];
 }
