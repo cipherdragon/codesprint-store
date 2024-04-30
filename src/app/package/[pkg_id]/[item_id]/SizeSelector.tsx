@@ -4,15 +4,17 @@ import ItemData from "@/types/ItemData";
 import { useEffect, useState } from "react";
 
 interface ColorSelectorProps {
-    item: ItemData,
+    item: ItemData;
+    selectedSize: string;
+    onSizeChange: (size: string) => void;
 }
 
-export default function SizeSelector({ item }: ColorSelectorProps) {
-    const [selectedSize, setSelectedSize] = useState<string>();
+export default function SizeSelector(props : ColorSelectorProps) {
+    const { item, onSizeChange, selectedSize } = props;
 
     useEffect(() => {
         if (item.colors.length == 1) {
-            setSelectedSize(item.colors[0])
+            onSizeChange(item.colors[0])
         } 
     }, [])
 
@@ -21,7 +23,7 @@ export default function SizeSelector({ item }: ColorSelectorProps) {
             {item.sizes.map((size) => 
                 <div 
                     key={size} 
-                    onClick={() => setSelectedSize(size)}
+                    onClick={() => onSizeChange(size)}
                     className={`w-[75px] h-[45px] rounded-lg cursor-pointer
                         flex items-center justify-center text-white font-bold
                         border border-white border-opacity-20

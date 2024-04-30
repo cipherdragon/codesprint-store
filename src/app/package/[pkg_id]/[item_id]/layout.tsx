@@ -1,6 +1,7 @@
 import { Packages as pkg_list } from "@/db/Packages";
 import { log } from "console";
 import { notFound } from "next/navigation";
+import { Toaster } from "sonner";
 
 type RootLayoutProps = Readonly<{ 
     children: React.ReactNode, 
@@ -17,6 +18,7 @@ export default function PackagePageLayout({ children, params }: RootLayoutProps)
 
     return (
         <section className="proper-padded-container">
+            <Toaster position="bottom-right" richColors expand={false} />
             { children }
         </section>
     );
