@@ -8,11 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "panel-color": "#1d1d1d",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      screens: {
+        'xsm': '500px',
+        'mobile': '620px',
+      }
     },
   },
   plugins: [],

@@ -1,0 +1,13 @@
+.hero {
+    @apply bg-white bg-opacity-5 border border-white border-opacity-15 
+        backdrop-blur-md mb-[50px] rounded-2xl;
+
+    height: calc(100vh - var(--header-height) + 30px);
+}
+
+/* 600px is assumed to be mobiles */
+@media screen and (max-width: 600px) {
+    .hero {
+        height: calc(100vh - var(--header-height) - 20px);
+    }
+}
