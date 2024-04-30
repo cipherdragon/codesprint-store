@@ -5,6 +5,7 @@ import ColorSelector from "./ColorSelector";
 import SizeSelector from "./SizeSelector";
 import Image from "next/image";
 import SizeChart_T from "@/assets/size_chart_t.webp";
+import SizeChart_H from "@/assets/size_chart_h.webp";
 import PackageData from "@/types/PackageData";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -91,7 +92,7 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
                 </div>
 
                 <Image 
-                    src={SizeChart_T} 
+                    src={item.name === "Adventurer Hoodie" ? SizeChart_H : SizeChart_T} 
                     alt="Size chart"
                     className="col-span-2 mt-[20px] rounded-3xl"
                     style={!is_clothing && {display: "none"} || {}} />
