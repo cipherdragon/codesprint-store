@@ -1,4 +1,5 @@
 import type Package from "@/types/PackageData";
+import Link from "next/link";
 
 export default function PackageCard({ data } : { data: Package } ) {
     const items = data.items.map((item) => 
@@ -26,13 +27,15 @@ export default function PackageCard({ data } : { data: Package } ) {
                     shadow-neutral-900 border border-[#67ac8455] min-w-[150px]">
                     {items}
                 </ul>
-                <button className="bg-[#318d62cc] backdrop-blur-sm px-4 py-3 rounded-2xl 
-                    font-bold w-full translate-y-[20px] translate-x-[50px] mb-[-50px] 
-                    shadow-lg shadow-neutral-900 border border-[#219961bb]
-                    max-[500px]:py-2 max-[500px]:text-sm max-[500px]:px-2 max-[500px]:rounded-xl
-                    min-w-[150px]">
-                    Customize <span className="text-xl max-[500px]:text-sm">&</span> Grab!
-                </button>
+                <Link href={`/package/${data.id}`}>
+                    <button className="bg-[#318d62cc] backdrop-blur-sm px-4 py-3 rounded-2xl 
+                        font-bold w-full translate-y-[20px] translate-x-[50px] mb-[-50px] 
+                        shadow-lg shadow-neutral-900 border border-[#219961bb]
+                        max-[500px]:py-2 max-[500px]:text-sm max-[500px]:px-2 max-[500px]:rounded-xl
+                        min-w-[150px]">
+                        Customize <span className="text-xl max-[500px]:text-sm">&</span> Grab!
+                    </button>
+                </Link>
             </div>
         </div>
     )

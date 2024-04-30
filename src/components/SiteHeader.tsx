@@ -9,8 +9,9 @@ export default function SiteHeader() {
 
         <div
             className='proper-padded-container flex justify-between p-[20px] 
-                bg-[#1d1d1d] my-[20px] xsm:my-[30px] rounded-2xl items-center 
-                box-border w-auto'>
+                bg-[#fff] bg-opacity-10 border border-white border-opacity-15
+                backdrop-blur-md shadow-lg shadow-neutral-900
+                my-[20px] xsm:my-[30px] rounded-2xl items-center box-border w-auto'>
             <Image 
                 src={codesprintLogo} 
                 alt="Codesprint Logo" 

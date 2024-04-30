@@ -29,8 +29,8 @@ function getOrderStr(orders: any[]) {
 
     const size_offsets = { "S": 0, "M": 1, "L": 2, "XL": 3, "2XL": 4 };
     const item_indices = { "Hoodie": 0, "T-Shirt": 10, "Notebook": 25, "Wristband": 26 };
-    const hoodie_colors = { "Black": 0, "White": 1 };
-    const tshirt_colors = { "Black": 0, "Ash": 1, "Blue": 2 };
+    const hoodie_colors = { "Black": 0, "White": 5 };
+    const tshirt_colors = { "Black": 0, "Ash": 5, "Blue": 10 };
 
     orders.forEach(order => {
         let index = 0, offset_1 = 0, offset_2 = 0;
@@ -112,6 +112,9 @@ export async function POST(request: NextRequest) {
 
     const order_str = getOrderStr(orders); 
     const price = calculatePrice(order_str, package_id);
+
+    if (price < 0) 
+        return new Response(JSON.stringify({ error: "Invalid order" }), { status: 400 });
 
     const auth = await google.auth.getClient({ scopes: ['https://www.googleapis.com/auth/spreadsheets'] });
     const sheets = google.sheets({ version: 'v4', auth });

@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "panel-color": "#1d1d1d",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -15,6 +18,7 @@ const config: Config = {
       },
       screens: {
         'xsm': '500px',
+        'mobile': '620px',
       }
     },
   },
