@@ -2,41 +2,13 @@ import { Packages as pkg_list } from "@/db/Packages";
 import ItemData from "@/types/ItemData";
 import { notFound } from "next/navigation";
 import CustomizeForm from "./CustomizeForm";
+import ItemPreview from "./ItemPreview";
 
 interface PackagePageProps {
     params: {
         pkg_id: string;
         item_id: string;
     }
-}
-
-function ThumbnailPanel({ item, className }: { item: ItemData, className?: string }) {
-    return (
-        <div 
-            className={className ? className : ""}>
-            <img
-                src={item.thumbnail} 
-                alt={item.name} 
-                width={60} 
-                height={60}
-                className="max-w-[60px] max-h-[60px] object-cover rounded-lg
-                    border-2 border-green-900" />
-            <img
-                src={item.thumbnail} 
-                alt={item.name} 
-                width={60} 
-                height={60}
-                className="max-w-[60px] max-h-[60px] object-cover rounded-lg
-                    border-2 border-neutral-400" />
-            <img
-                src={item.thumbnail} 
-                alt={item.name} 
-                width={60} 
-                height={60}
-                className="max-w-[60px] max-h-[60px] object-cover rounded-lg
-                    border-2 border-neutral-400" />
-        </div>
-    );
 }
 
 export default function PackagePage(props: PackagePageProps) {
@@ -58,30 +30,7 @@ export default function PackagePage(props: PackagePageProps) {
                max-[620px]:backdrop-blur-sm max-[620px]:py-[30px]
                max-[620px]:border border-white border-opacity-20">
                 <div className="w-fit min-[620px]:pl-[80px] min-[620px]:pr-[30px] mx-auto">
-                    <ThumbnailPanel
-                        item={item}
-                        className="flex gap-3 items-center bg-[#36c0a9]
-                            rounded-xl p-[10px] box-border
-                            backdrop-blur-md bg-opacity-20 border border-[#36c0a9]
-                            border-opacity-30 shadow-lg shadow-[#000000a6]
-                            min-[620px]:translate-x-[-80px] min-[620px]:translate-y-[50px]
-                            min-[620px]:max-w-[350px] min-[620px]:w-max w-full 
-                            max-[620px]:mb-[20px] justify-between" />
-                    <img
-                        src={item.thumbnail} 
-                        alt={item.name} 
-                        width={400} 
-                        height={400}
-                        className="max-w-[400px] max-h-[400px] object-cover rounded-3xl
-                            max-[620px]:w-[300px] max-[620px]:h-[300px]" />
-                    <h2 
-                        className="bg-[#36c0a9] bg-opacity-50 border border-[#36c0a9] 
-                        backdrop-blur-md shadow-md shadow-[#000000a6]
-                        w-full mx-auto text-center font-bold text-xl text-opacity-55
-                        rounded-xl p-3 max-[620px]:mt-[20px]
-                        min-[620px]:translate-y-[-30px] min-[620px]:translate-x-[30px]">
-                        {item.name}
-                    </h2>
+                    <ItemPreview item={item} />
                 </div>
             </div>
 
