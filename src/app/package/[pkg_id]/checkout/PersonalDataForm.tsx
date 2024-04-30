@@ -1,5 +1,7 @@
 import checkoutImg_1 from "@/assets/checkout-img-1.webp";
+import { isEmailValid, isNameValid, isPhoneValid } from "@/util/Validator";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 interface PersonalDataFormProps {
     fullName: string;
@@ -13,6 +15,9 @@ interface PersonalDataFormProps {
 
     address: string;
     onAddressChange: (address: string) => void;
+
+    onEmptinessChange: (isAllFilled: boolean) => void;
+    showEmptiness: boolean;
 }
 
 export default function PersonalDataForm(props: PersonalDataFormProps) {
@@ -20,8 +25,77 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
         fullName, onFullNameChange,
         email, onEmailChange,
         phone, onPhoneChange,
-        address, onAddressChange
+        address, onAddressChange,
+        onEmptinessChange, 
+        showEmptiness
     } = props;
+
+    const emailRef = useRef<HTMLInputElement>(null);
+    const nameRef = useRef<HTMLInputElement>(null);
+    const phoneRef = useRef<HTMLInputElement>(null);
+    const addressRef = useRef<HTMLTextAreaElement>(null);
+    
+    const [isFormFilled, setIsFormFilled] = useState(false);
+
+    useEffect(() => {
+        const formFilled = fullName && email && address && phone;
+
+        if (formFilled && !isFormFilled) {
+            setIsFormFilled(true);
+            onEmptinessChange(true);
+        } else if (!formFilled && isFormFilled) {
+            setIsFormFilled(false)
+            onEmptinessChange(false);
+        }
+    }, [fullName, email, address, phone])
+
+    const setName = (name: string) => {
+        name = name
+                .trimStart()
+                .replace(/\s+/g, " ")
+                .replace(/[^a-zA-Z\s]/g, "")
+        
+        onFullNameChange(name);
+    };
+
+    const setPhone = (phone: string) => {
+        phone = phone
+                .trim()
+                .replace(/\s+/g, "")
+                .replace(/[^0-9]/g, "")
+        
+        onPhoneChange(phone);
+    }
+
+    useEffect(() => {
+        const debouncedCheck = setTimeout(() => {
+            if ((email || showEmptiness) && !isEmailValid(email)) {
+                emailRef.current?.classList.add("input-box--error");
+            } else {
+                emailRef.current?.classList.remove("input-box--error");
+            }
+
+            if ((phone || showEmptiness) && !isPhoneValid(phone)) {
+                phoneRef.current?.classList.add("input-box--error");
+            } else {
+                phoneRef.current?.classList.remove("input-box--error");
+            }
+
+            if ((fullName || showEmptiness) && !isNameValid(fullName)) {
+                nameRef.current?.classList.add("input-box--error");
+            } else {
+                nameRef.current?.classList.remove("input-box--error");
+            }
+
+            if (!address && showEmptiness) {
+                addressRef.current?.classList.add("input-box--error");
+            } else {
+                addressRef.current?.classList.remove("input-box--error");
+            }
+        }, 800)
+
+        return () => clearTimeout(debouncedCheck);
+    }, [email, phone, fullName, address, showEmptiness])
 
     return (
         <div className="bg-white bg-opacity-10 rounded-xl backdrop-blur-md
@@ -31,7 +105,8 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                 src={checkoutImg_1}
                 alt="checkout image"
                 className="max-w-[450px] object-cover object-center max-lg:hidden" />
-            <form className="p-3 min-w-[400px]">
+
+            <form className="p-3 lg:min-w-[400px]">
                 <h2 className="text-2xl font-bold mb-[30px]">
                     Who are you btw?
                 </h2>
@@ -48,7 +123,8 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                             className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20"
                             placeholder="John Doe"
                             value={fullName}
-                            onChange={e => onFullNameChange(e.target.value)} />
+                            ref={nameRef}
+                            onChange={e => setName(e.target.value)} />
                     </div>
                     <div className="w-full">
                         <label htmlFor="email" className="block text-sm font-bold text-white mb-[5px]">
@@ -61,7 +137,8 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                             className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20"
                             placeholder="mail@example.com"
                             value={email}
-                            onChange={e => onEmailChange(e.target.value) } />
+                            ref={emailRef}
+                            onChange={e => onEmailChange(e.target.value.trim()) } />
                     </div>
                     <div className="w-full">
                         <label htmlFor="phone" className="block text-sm font-bold text-white mb-[5px]">
@@ -74,7 +151,8 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                             className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20"
                             placeholder="0712345678"
                             value={phone}
-                            onChange={e => onPhoneChange(e.target.value) } />
+                            ref={phoneRef}
+                            onChange={e => setPhone(e.target.value) } />
                     </div>
                     <div className="w-full">
                         <label htmlFor="address" className="block text-sm font-bold text-white mb-[5px]">
@@ -86,9 +164,14 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                             className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20"
                             placeholder="123, Example Street, Colombo 05"
                             value={address}
-                            onChange={e => onAddressChange(e.target.value) } />
+                            ref={addressRef}
+                            onChange={e => onAddressChange(e.target.value.trimStart()) } />
                     </div>
                 </div>
+                <p className="mt-[10px]">
+                    Note: Delivery will be offered for customers out of Colombo.
+                    Please note that an extra delivery fee will be charged.
+                </p>
             </form>
         </div>
     );

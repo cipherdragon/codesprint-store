@@ -57,3 +57,7 @@ body {
         height: 1px;
     }
 }
+
+.input-box--error {
+    @apply !border-red-800 !bg-red-600 !bg-opacity-10;
+}

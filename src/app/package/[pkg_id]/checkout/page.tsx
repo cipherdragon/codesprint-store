@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import PackageData from "@/types/PackageData";
 import { PackageInvoice } from "@/util/invoice/PackageInvoice";
 
+import { Toaster, toast } from "sonner";
+
 export default function CheckoutPage() {
     const [thePackage, setThePackage] = useState<PackageData>();
     const [items, setItems] = useState<ShoppingCartType>({});
@@ -54,6 +56,8 @@ export default function CheckoutPage() {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
+    const [emptinessIndicator, setEmptinessIndicator] = useState(false);
+    const [isFormFilled, setIsFormFilled] = useState(false);
 
     const item_list = [];
     
@@ -70,6 +74,12 @@ export default function CheckoutPage() {
     }
 
     const onInvoiceDownload = () => {
+        if (!isFormFilled) {
+            toast.error("Please fill out personal information");
+            setEmptinessIndicator(true);
+            return;
+        }
+
         const invoice = new PackageInvoice("INV-123", fullName, email, phone);
         invoice.setPackage(thePackage!);
         invoice.setCart(items);
@@ -79,6 +89,8 @@ export default function CheckoutPage() {
 
     return (
         <div className="proper-padded-container">
+            <Toaster richColors position="top-center"/> 
+
             <PersonalDataForm 
                 email={email} 
                 onEmailChange={setEmail}
@@ -87,7 +99,9 @@ export default function CheckoutPage() {
                 phone={phone}
                 onPhoneChange={setPhone}
                 address={address}
-                onAddressChange={setAddress} />
+                onAddressChange={setAddress}
+                showEmptiness={emptinessIndicator}
+                onEmptinessChange={setIsFormFilled} />
 
             <div 
                 className="bg-white bg-opacity-10 backdrop-blur-md rounded-xl 
@@ -95,19 +109,19 @@ export default function CheckoutPage() {
                     bg-[url('/checkout-img-2.webp')] bg-cover bg-center">
 
                 <div 
-                    className="max-w-[440px] p-3 bg-white 
+                    className="md:max-w-[440px] p-3 bg-white 
                         bg-opacity-10 backdrop-blur-md border-r border-white border-opacity-15">
                     <h1
                         className="font-bold text-2xl mb-[20px]">
                         Let&rsquo;s place your order!
                     </h1>
                     
-                    <h2 className="mb-[20px]">
+                    <h2 className="mb-[20px] max-md:hidden">
                         Here&rsquo;s the summary of your order:
                     </h2>
 
                     <div className="border-dashed border-2 border-white 
-                        border-opacity-50 w-fit p-3 mb-[20px]">
+                        border-opacity-50 w-fit p-3 mb-[20px] max-md:mx-auto">
                         <div className="mb-[20px]">
                             <span className="w-[70px] inline-block">Package</span>:
                             <span className="inline-block ms-[20px] font-bold">{thePackage.name}</span> <br />
