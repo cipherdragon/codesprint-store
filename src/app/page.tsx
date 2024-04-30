@@ -2,11 +2,9 @@ import { Metadata } from "next";
 import React from "react";
 
 import { Packages as package_list } from "@/db/Packages";
-import {Items as items_list} from "@/db/Items";
 
 import styles from "../styles/Home.module.css"
 import PackageCard from "@/components/PackageCard";
-import ItemCard from "@/components/ItemCard";
 
 export const metadata : Metadata = {
     title: "Codesprint Store",
