@@ -27,7 +27,7 @@ export default function PackageCard({ data } : { data: Package } ) {
                     shadow-neutral-900 border border-[#67ac8455] min-w-[150px]">
                     {items}
                 </ul>
-                <Link href={`/package/${data.id}`}>
+                <Link href={`/package/${data.id}`} prefetch={false}>
                     <button className="bg-[#318d62cc] backdrop-blur-sm px-4 py-3 rounded-2xl 
                         font-bold w-full translate-y-[20px] translate-x-[50px] mb-[-50px] 
                         shadow-lg shadow-neutral-900 border border-[#219961bb]
