@@ -44,7 +44,7 @@ export default function EarlyBirdTimer() {
                 Early Bird Offer!
             </h2>
             <h3 className="font-bold text-white text-center">
-                {timeLeft} to expire
+                {timeLeft}
             </h3>
             <h3 className="font-bold text-neutral-300 text-center">
                 Only till May 15th, 2024!

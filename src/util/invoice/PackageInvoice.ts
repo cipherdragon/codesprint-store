@@ -1,11 +1,10 @@
 import { jsPDF, type CellConfig } from "jspdf";
 
-import invoiceLogo from "./assets/codesprint-invoice-logo.jpg";
 import { ShoppingCartType } from "@/db/ShoppingCart";
 import PackageData from "@/types/PackageData";
 
 const order_instructions = 
-    "Download this invoice for later reference. \n\n" + 
+    "Keep this invoice for later reference. \n\n" + 
     "To complete the order, please deposit the payment to the bank account given " + 
     "below. Then submit this invoice and the bank receipt/screen shot/proof of payment " + 
     "to https://codesprint.lk/store-checkout. \n\n" + 
@@ -13,7 +12,7 @@ const order_instructions =
     "Acc no: 8001874231\n" +
     "Name: V Kavishcan\n" +
     "Bank: Commercial Bank\n" +
-    "Branch: wellawatta";
+    "Branch: Wellawatta";
 
 export class PackageInvoice {
     private item_list : ShoppingCartType;

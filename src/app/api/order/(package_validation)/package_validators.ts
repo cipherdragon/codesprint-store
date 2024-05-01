@@ -52,7 +52,7 @@ function package_adventure(order_str: string) {
     const items : ItemOrder[] = decodeOrderString(order_str);
     if (!getItemValidity(items)) return false;
 
-    const allowed_items = Packages.find(pkg => pkg.name === "Adventure Attire")!.items;
+    const allowed_items = Packages.find(pkg => pkg.name === "Adventurer Attire")!.items;
 
     for (let i = 0; i < items.length; i++) {
         const order_item = items[i];
@@ -84,7 +84,7 @@ function package_prestige(order_str: string) {
 
 export const package_validators : PackageValidators = {
     "Cosmic Collection" : [ package_cosmic,    (_ : string) => Packages.find(pkg => pkg.name === "Cosmic Collection")!.price ],
-    "Adventure Attire"  : [ package_adventure, (_ : string) => Packages.find(pkg => pkg.name === "Adventure Attire")!.price ],
+    "Adventurer Attire"  : [ package_adventure, (_ : string) => Packages.find(pkg => pkg.name === "Adventurer Attire")!.price ],
     "Prestige Combo"    : [ package_prestige,  (_ : string) => Packages.find(pkg => pkg.name === "Prestige Combo")!.price ],
 }
 
