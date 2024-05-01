@@ -12,7 +12,7 @@ export const Packages :PackageData[] = [
     },
     {
         id: 2,
-        name: "Adventure Attire",
+        name: "Adventurer Attire",
         price: 3550, // preorder - 3550/=
         real_price: 3750,
         thumbnail: "/package-thumbs/adventure-attire.webp",
