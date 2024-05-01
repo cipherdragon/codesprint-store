@@ -40,7 +40,7 @@ export default function EarlyBirdTimer() {
         <div className="bg-teal-700 border bg-opacity-50 
             border-teal-500 border-opacity-60 rounded-lg p-3 mb-[20px]
             backdrop-blur-md">
-            <h2 className="text-center font-bold text-2xl mb-[15px]">
+            <h2 className="text-center font-bold text-2xl mb-[15px] text-white">
                 Early Bird Offer!
             </h2>
             <h3 className="font-bold text-white text-center">
