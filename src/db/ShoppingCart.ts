@@ -14,7 +14,12 @@ let selected_package_id : number | undefined = undefined;
 let shopping_cart: ShoppingCartType = {};
 
 export function setPackage(pkg_id: number) {
-    if (selected_package_id != undefined) return;
+    if (selected_package_id) {
+        if (selected_package_id != pkg_id) {
+            shopping_cart = {};
+        }
+    }
+
     selected_package_id = pkg_id;
 }
 
