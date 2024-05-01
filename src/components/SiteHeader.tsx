@@ -20,8 +20,8 @@ export default function SiteHeader() {
             </Link>
             <nav
                 className='flex gap-[30px] items-center'>
-                <ShoppingBag 
-                    className='cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]'/>
+                {/* <ShoppingBag 
+                    className='cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]'/> */}
                 <Info
                     className='cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]'/>
             </nav>
