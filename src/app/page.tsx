@@ -46,7 +46,7 @@ export default function Home() {
                             <li>You&apos;re all set! You can now go home and place another order.</li>
                         </ol>
                         <ul className="font-bold text-xl w-full list-disc list-inside">
-                            <li>
+                            <li className="text-white">
                                 Looking for the payment confirmation form?&nbsp;
                                 <a href="https://codesprint.lk/store-checkout" 
                                     className="text-teal-300 underline">
