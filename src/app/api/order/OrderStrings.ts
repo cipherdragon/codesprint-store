@@ -14,7 +14,7 @@ const sizes = {
 }
 
 const colors = {
-    "N/A"  : 0b001,
+    "N/A"  : 0b000,
     "white": 0b001,
     "black": 0b010,
 }
