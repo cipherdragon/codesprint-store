@@ -47,7 +47,7 @@ export default function EarlyBirdTimer() {
                 {timeLeft}
             </h3>
             <h3 className="font-bold text-neutral-300 text-center">
-                Only till May 15th, 2024!
+                Valid Until May 16th, 2024!
             </h3>
         </div>
     )
