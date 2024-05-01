@@ -29,7 +29,10 @@ export const Items : ItemData[] = [
         id: 3,
         name: "CodeSprint 8 Wrist Band",
         price: 200, // dont put these prices
-        thumbnail: ["https://static-01.daraz.lk/p/aaad151d06ad59bff241a44c3e5f7187.jpg_300x0q75.webp"],
+        thumbnail: [
+            "/product-thumbnails/wristband-1.webp",
+            "/product-thumbnails/wristband-2.webp",
+        ],
         colors: ["black"],
         sizes: [],
     },
