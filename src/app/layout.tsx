@@ -7,7 +7,7 @@ import SiteFooter from "@/components/SiteFooter";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Codesprint Merch Store",
+  title: "CodeSprint Merch Store",
   description: "Official Merchandise store fore Codesprint 8.0",
 };
 
