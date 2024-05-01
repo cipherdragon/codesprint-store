@@ -182,6 +182,14 @@ export default function CheckoutPage() {
                             Deposit the payment to the following bank account
                             and submit both invoice and the deposit slip to the google
                             form given below.
+                            <br /><br />
+                            Form:&nbsp;
+                            <a 
+                                href="https://codesprint.lk/store-checkout" 
+                                target="_blank" 
+                                className="underline text-teal-400 font-bold">
+                                https://codesprint.lk/store-checkout
+                            </a>
                         </p>
                         <p className="leading-6 text-base font-bold mb-[30px]">
                             Acc no: 8001874231 <br />
@@ -190,6 +198,12 @@ export default function CheckoutPage() {
                             Branch: Wellawatta
                         </p>
                     </div>
+                    <button 
+                        onClick={ () => router.replace("/") }
+                        className="border-teal-200 border-2 w-full font-bold p-3
+                            rounded-lg flex justify-center gap-3 text-teal-200 mb-[10px]">
+                        Changed your mind? (Go Back Home)
+                    </button>
                     <button 
                         onClick={onInvoiceDownload}
                         className="bg-teal-600 w-full font-bold p-3
