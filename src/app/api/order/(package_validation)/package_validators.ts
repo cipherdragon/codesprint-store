@@ -1,71 +1,91 @@
+import { Items } from "@/db/Items";
+import { decodeOrderString } from "../OrderStrings";
+import { ItemOrder } from "../types";
+import { Packages } from "@/db/Packages";
+
 type package_validator = (order_str: string) => boolean;
 type pricing_function = (order_str: string) => number;
 interface PackageValidators {
     [key : string]: [package_validator, pricing_function];
 }
 
-const prices = {
-    hoodie: 2000,
-    tshirt: 1000,
-    notebook: 500,
-    wristband: 100
-}
+function getItemValidity(items: ItemOrder[]) {
+    for (let i = 0; i < items.length; i++) {
+        const order_item = items[i];
+        const item = Items.find(item => item.id === order_item.item_id);
 
-function slice_order(order_str: string) {
-    const order_arr = order_str.split(",").map(Number);
+        if (!item) return false;
 
-    const hoodie = order_arr.slice(0, 10);
-    const tshirt = order_arr.slice(10, 25);
-    const notebook = order_arr.slice(25, 26);
-    const wristband = order_arr.slice(26, 27);
+        const { size, color, quantity } = order_item;
+        if (!size || !color || !quantity) return false;
 
-    return { hoodie, tshirt, notebook, wristband };
-}
+        const item_sizes = item.sizes.length > 0 ? item.sizes : ["N/A"];
+        const item_colors = item.colors.length > 0 ? item.colors : ["N/A"];
 
-function get_totals(hoodie: number[], tshirt: number[], notebook: number[], wristband: number[]) {
-    const hoodie_total = hoodie.reduce((acc, val) => acc + val, 0);
-    const tshirt_total = tshirt.reduce((acc, val) => acc + val, 0);
-    const notebook_total = notebook.reduce((acc, val) => acc + val, 0);
-    const wristband_total = wristband.reduce((acc, val) => acc + val, 0);
-
-    return { hoodie_total, tshirt_total, notebook_total, wristband_total };
-}
-
-function package_combo(order_str: string) {
-    const { hoodie, tshirt, notebook, wristband } = slice_order(order_str);
-    const { hoodie_total, tshirt_total, notebook_total, wristband_total } = get_totals(hoodie, tshirt, notebook, wristband);
-
-    return (
-        hoodie_total    <= 1 && 
-        tshirt_total    <= 1 && 
-        notebook_total  <= 1 && 
-        wristband_total <= 1
-    );
-}
-
-function package_na(order_str: string) {
-    const order_arr = order_str.split(",").map(Number);
-    if (order_arr.length !== 27) return false;
+        if (!item_sizes.includes(size)) return false;
+        
+        if (!item_colors.includes(color)) return false;
+        if (quantity < 1) return false;
+    }
+    
     return true;
 }
 
-function package_na_price(order_str: string) {
-    const { hoodie, tshirt, notebook, wristband } = slice_order(order_str);
-    const { hoodie_total, tshirt_total, notebook_total, wristband_total } = get_totals(hoodie, tshirt, notebook, wristband);
+function package_prime(order_str: string) {
+    const items : ItemOrder[] = decodeOrderString(order_str);
+    if (!getItemValidity(items)) return false;
 
-    let price = 0;
-    price += hoodie_total * prices.hoodie;
-    price += tshirt_total * prices.tshirt;
-    price += notebook_total * prices.notebook;
-    price += wristband_total * prices.wristband;
+    const allowed_items = Packages.find(pkg => pkg.name === "Prime")!.items;
 
-    return price;
+    for (let i = 0; i < items.length; i++) {
+        const order_item = items[i];
+        const item = Items.find(item => item.id === order_item.item_id);
+
+        if (!allowed_items.includes(item!)) return false;
+        if (order_item.quantity > 1) return false;
+    }
+
+    return true;
 }
 
+function package_opulence(order_str: string) {
+    const items : ItemOrder[] = decodeOrderString(order_str);
+    if (!getItemValidity(items)) return false;
+
+    const allowed_items = Packages.find(pkg => pkg.name === "Opulence")!.items;
+
+    for (let i = 0; i < items.length; i++) {
+        const order_item = items[i];
+        const item = Items.find(item => item.id === order_item.item_id);
+
+        if (!allowed_items.includes(item!)) return false;
+        if (order_item.quantity > 1) return false;
+    }
+
+    return true;
+}
+
+function package_prestige(order_str: string) {
+    const items : ItemOrder[] = decodeOrderString(order_str);
+    if (!getItemValidity(items)) return false;
+
+    const allowed_items = Packages.find(pkg => pkg.name === "Prestige")!.items;
+
+    for (let i = 0; i < items.length; i++) {
+        const order_item = items[i];
+        const item = Items.find(item => item.id === order_item.item_id);
+
+        if (!allowed_items.includes(item!)) return false;
+        if (order_item.quantity > 1) return false;
+    }
+
+    return true;
+}
 
 export const package_validators : PackageValidators = {
-    "combo": [ package_combo, (_ : string) => 3000 ],
-    "n/a": [ package_na, package_na_price],
+    "Prime"   : [ package_prime,    (_ : string) => Packages.find(pkg => pkg.name === "Prime")!.price ],
+    "Opulence": [ package_opulence, (_ : string) => Packages.find(pkg => pkg.name === "Opulence")!.price ],
+    "Prestige": [ package_prestige, (_ : string) => Packages.find(pkg => pkg.name === "Prestige")!.price ],
 }
 
-export const package_list = ["combo", "n/a"];
+export const package_list = ["Prime", "Opulence", "Prestige"];

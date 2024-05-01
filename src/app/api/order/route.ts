@@ -4,9 +4,10 @@ import { package_list, package_validators } from "./(package_validation)/package
 import awaitable from "@/util/asyncUtil";
 
 import { packages, GetParamsResult } from "./types";
+import { getOrderStr } from "./OrderStrings";
 
-function calculatePrice(order_str : string, package_id : packages) {
-    const [ validator, price_func ] = package_validators[package_id];
+function calculatePrice(order_str : string, package_name : packages) {
+    const [ validator, price_func ] = package_validators[package_name];
     if (!validator(order_str)) return -1;
     return price_func(order_str);
 }
@@ -30,9 +31,9 @@ function getParams(requestBody: any) : GetParamsResult {
     const email = requestBody['email'];
     const address = requestBody['address'];
     const phone = "'" + requestBody['phone'];
-    const package_id = requestBody['package_id'] as packages;
+    const package_name = requestBody['package_name'] as packages;
 
-    if (!orders || !name || !email || !address || !phone || !package_id)
+    if (!orders || !name || !email || !address || !phone || !package_name)
         return [null, "Missing required fields"];
 
     // Name validation (only alphabets and spaces, 200 char limit)
@@ -51,15 +52,15 @@ function getParams(requestBody: any) : GetParamsResult {
     if (!/^'[0-9]{10}$/.test(phone))
         return [null, "Invalid phone number"];
 
-    // Package ID validation (only 'combo' or 'n/a')
-    if (!package_list.includes(package_id))
-        return [null, "Invalid package ID"];
+    // Package name validation
+    if (!package_list.includes(package_name))
+        return [null, "Invalid package name"];
 
     // Orders validation (array of objects, at least 1 such order)
     if (!Array.isArray(orders) || orders.length === 0)
         return [null, "Invalid orders"];
 
-    return [{name, email, phone, address, package_id, orders}, null]
+    return [{name, email, phone, address, package_name, orders}, null]
 }
 
 export async function POST(request: NextRequest) {
@@ -69,11 +70,10 @@ export async function POST(request: NextRequest) {
     const [params, err2] = getParams(requestBody);
     if (err2) return new Response(JSON.stringify({ error: err2 }), { status: 400 });
 
-    const { name, email, phone, address, package_id, orders } = params!;
+    const { name, email, phone, address, package_name, orders } = params!;
     const invoice_id = getInvoiceID();
-
     const order_str = getOrderStr(orders); 
-    const price = calculatePrice(order_str, package_id);
+    const price = calculatePrice(order_str, package_name);
 
     if (price < 0) 
         return new Response(JSON.stringify({ error: "Invalid order" }), { status: 400 });
@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
         range: 'Order',
         valueInputOption: 'USER_ENTERED',
         requestBody: {
-            values: [[invoice_id, name, email, phone, address, `${price} LKR`, "Pending", package_id, order_str]]
+            values: [[invoice_id, name, email, phone, address, `${price} LKR`, "Pending", package_name, order_str]]
         }
     }));
 
