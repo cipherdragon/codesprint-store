@@ -14,9 +14,11 @@ const sizes = {
 }
 
 const colors = {
-    "N/A"  : 0b000,
-    "white": 0b001,
-    "black": 0b010,
+    "N/A"    : 0b000,
+    "white"  : 0b001,
+    "black"  : 0b010,
+    "gray"   : 0b011,
+    "#11525a": 0b100,
 }
 
 export function getOrderStr(orders: ItemOrder[]) {

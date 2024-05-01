@@ -10,7 +10,7 @@ export const Items : ItemData[] = [
             "/product-thumbnails/cosmic-tee-2.webp",
             "/product-thumbnails/cosmic-tee-3.webp",
         ],
-        colors: ["#11525a", "black", "#525252"],
+        colors: ["black", "gray", "#11525a"],
         sizes: ["3XS","2XS","XS","S", "M", "L", "XL", "2XL", "3XL"],
     },
     {

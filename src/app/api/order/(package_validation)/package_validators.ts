@@ -31,11 +31,11 @@ function getItemValidity(items: ItemOrder[]) {
     return true;
 }
 
-function package_prime(order_str: string) {
+function package_cosmic(order_str: string) {
     const items : ItemOrder[] = decodeOrderString(order_str);
     if (!getItemValidity(items)) return false;
 
-    const allowed_items = Packages.find(pkg => pkg.name === "Prime")!.items;
+    const allowed_items = Packages.find(pkg => pkg.name === "Cosmic Collection")!.items;
 
     for (let i = 0; i < items.length; i++) {
         const order_item = items[i];
@@ -48,11 +48,11 @@ function package_prime(order_str: string) {
     return true;
 }
 
-function package_opulence(order_str: string) {
+function package_adventure(order_str: string) {
     const items : ItemOrder[] = decodeOrderString(order_str);
     if (!getItemValidity(items)) return false;
 
-    const allowed_items = Packages.find(pkg => pkg.name === "Opulence")!.items;
+    const allowed_items = Packages.find(pkg => pkg.name === "Adventure Attire")!.items;
 
     for (let i = 0; i < items.length; i++) {
         const order_item = items[i];
@@ -69,7 +69,7 @@ function package_prestige(order_str: string) {
     const items : ItemOrder[] = decodeOrderString(order_str);
     if (!getItemValidity(items)) return false;
 
-    const allowed_items = Packages.find(pkg => pkg.name === "Prestige")!.items;
+    const allowed_items = Packages.find(pkg => pkg.name === "Prestige Combo")!.items;
 
     for (let i = 0; i < items.length; i++) {
         const order_item = items[i];
@@ -83,9 +83,9 @@ function package_prestige(order_str: string) {
 }
 
 export const package_validators : PackageValidators = {
-    "Prime"   : [ package_prime,    (_ : string) => Packages.find(pkg => pkg.name === "Prime")!.price ],
-    "Opulence": [ package_opulence, (_ : string) => Packages.find(pkg => pkg.name === "Opulence")!.price ],
-    "Prestige": [ package_prestige, (_ : string) => Packages.find(pkg => pkg.name === "Prestige")!.price ],
+    "Cosmic Collection" : [ package_cosmic,    (_ : string) => Packages.find(pkg => pkg.name === "Cosmic Collection")!.price ],
+    "Adventure Attire"  : [ package_adventure, (_ : string) => Packages.find(pkg => pkg.name === "Adventure Attire")!.price ],
+    "Prestige Combo"    : [ package_prestige,  (_ : string) => Packages.find(pkg => pkg.name === "Prestige Combo")!.price ],
 }
 
-export const package_list = ["Prime", "Opulence", "Prestige"];
+export const package_list = Object.keys(package_validators);
