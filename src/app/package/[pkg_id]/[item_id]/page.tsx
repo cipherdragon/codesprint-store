@@ -24,7 +24,7 @@ export default function PackagePage(props: PackagePageProps) {
     }
 
     return (
-        <div className="flex flex-wrap justify-between items-center gap-[20px]">
+        <div className="flex flex-wrap sm:justify-between justify-center items-center gap-[20px]">
             <div className="p-3 max-[620px]:w-full rounded-3xl 
                max-[620px]:bg-white max-[620px]:bg-opacity-10 
                max-[620px]:backdrop-blur-sm max-[620px]:py-[30px]
