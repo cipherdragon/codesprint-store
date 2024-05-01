@@ -1,0 +1,13 @@
+.hero {
+    @apply mb-[50px] flex items-center justify-center h-screen;
+
+    transform: translateY(calc(-1 * var(--header-height) + 30px));
+    /* height: calc(100vh - var(--header-height) + 30px); */
+}
+
+/* 600px is assumed to be mobiles */
+@media screen and (max-width: 600px) {
+    .hero {
+        height: calc(100vh - var(--header-height) - 20px);
+    }
+}
