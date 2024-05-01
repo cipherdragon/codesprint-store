@@ -91,6 +91,8 @@ export default function CheckoutPage() {
             })
         }
 
+        toast.info("Give us a second. We're talking to the server...");
+
         const [response, error] = await awaitable(fetch("/api/order/", {
             method: "POST",
             headers: {
@@ -124,6 +126,7 @@ export default function CheckoutPage() {
         invoice.setCart(items);
 
         invoice.downloadInvoice();
+        router.push(`/package/${thePackage.id}/checkout/thankyou`);
     }
 
     return (
