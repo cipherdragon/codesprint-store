@@ -208,7 +208,7 @@ export default function CheckoutPage() {
                         onClick={onInvoiceDownload}
                         className="bg-teal-600 w-full font-bold p-3
                             rounded-lg flex justify-center gap-3 text-white">
-                        Dowload invoice <Download color="white"/>
+                        Download Invoice <Download color="white"/>
                     </button>
                 </div>
             </div>
