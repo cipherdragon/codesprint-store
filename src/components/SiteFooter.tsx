@@ -107,7 +107,7 @@ export default function SiteFooter() {
                 </div>
 
                 <div className="border-t border-gray-700 text-center py-4">
-                    <p>© CODESPRINT MERCH STORE - Powered by Web Team</p>
+                    <p>Copyright 2024 - CodesSprint 8 Merch Store</p>
                 </div>
             </div>
         </footer>
