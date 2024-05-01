@@ -23,6 +23,7 @@ export default function SiteHeader() {
                 {/* <ShoppingBag 
                     className='cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]'/> */}
                 <Info
+                    color='white'
                     className='cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]'/>
             </nav>
         </div>

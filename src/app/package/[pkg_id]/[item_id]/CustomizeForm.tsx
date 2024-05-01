@@ -66,7 +66,7 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
 
     return (
         <div className="p-3 pt-[20px]">
-            <h3 className="text-3xl font-bold mb-[50px] text-center mobile:text-start">
+            <h3 className="text-white text-3xl font-bold mb-[50px] text-center mobile:text-start">
                 {item.name}
             </h3>
             <div className="grid grid-cols-[50px_auto] gap-3 items-center">

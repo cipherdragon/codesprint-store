@@ -168,7 +168,7 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                             onChange={e => onAddressChange(e.target.value.trimStart()) } />
                     </div>
                 </div>
-                <p className="mt-[10px]">
+                <p className="mt-[10px] text-white">
                     Note: Delivery will be offered for customers out of Colombo.
                     Please note that an extra delivery fee will be charged.
                 </p>
