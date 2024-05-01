@@ -32,10 +32,19 @@ export default function Home() {
         </section>
         <section
             className="proper-padded-container">
-                <div className="mb-[30p]">
-                    STEPS!!!
+            {/* <div className="mx-auto w-full">
+                <div className="p-10 rounded-2xl bg-gradient-to-r from-[#318d62cc] to-[#219961bb] bg-opacity-10 border border-white border-opacity-15 backdrop-blur-md shadow-lg shadow-neutral-900 my-6 flex flex-col items-center space-y-4">
+                    <h2 className="text-center text-4xl font-semibold text-white pb-4">Steps to Purchase</h2>
+                    <ol className="list-decimal list-inside space-y-2 text-white text-xl">
+                        <li>Choose your desired package from the Celestial Collection.</li>
+                        <li>Customize the size and color to your preference.</li>
+                        <li>Proceed to checkout by clicking "Next."</li>
+                        <li>Download the invoice for your purchase.</li>
+                        <li>Fill out the form with your invoice details and attach the bank receipt.</li>
+                        <li>You're all set! You can now go home and place another order.</li>
+                    </ol>
                 </div>
-
+            </div> */}
                 {/* This is for git */}
                 <div className="bg-red-400">
                     Hello

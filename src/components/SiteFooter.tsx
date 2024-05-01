@@ -24,22 +24,17 @@ export default function SiteFooter() {
                             <ul className="font-bold text-white text-opacity-40">
                                 <li>
                                     <a href="#" className="hover:underline">
-                                        T-shirt
+                                        Cosmic Collection
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" className="hover:underline">
-                                        Hoodie
+                                        Adventure Attire
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" className="hover:underline">
-                                        Wrist Band
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="hover:underline">
-                                        Notebook
+                                        Prestige Combo
                                     </a>
                                 </li>
                             </ul>
