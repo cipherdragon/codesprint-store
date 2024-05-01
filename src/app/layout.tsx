@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CodeSprint Merch Store",
-  description: "Official Merchandise store fore Codesprint 8.0",
+  description: "Official Merchandise Store for Codesprint 8",
 };
 
 type RootLayoutProps = Readonly<{ children: React.ReactNode }>;
