@@ -16,7 +16,7 @@ export default function PackageCard({ data } : { data: Package } ) {
                 className="rounded-3xl max-h-[400px] max-w-[400px] w-full object-cover"
                 alt="" />
             <div className="p-3 pt-[20px]">
-                <h3 className="text-xl font-bold">
+                <h3 className="text-xl font-bold text-white">
                     { data.name }
                 </h3>
                 <span className="block font-bold text-sm text-white opacity-55 mt-[8px]">
@@ -32,7 +32,7 @@ export default function PackageCard({ data } : { data: Package } ) {
                         font-bold w-full translate-y-[20px] translate-x-[50px] mb-[-50px] 
                         shadow-lg shadow-neutral-900 border border-[#219961bb]
                         max-[500px]:py-2 max-[500px]:text-sm max-[500px]:px-2 max-[500px]:rounded-xl
-                        min-w-[150px]">
+                        min-w-[150px] text-white">
                         Customize <span className="text-xl max-[500px]:text-sm">&</span> Grab!
                     </button>
                 </Link>

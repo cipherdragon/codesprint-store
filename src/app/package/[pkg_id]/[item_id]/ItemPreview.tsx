@@ -39,9 +39,9 @@ export default function ItemPreview({ item }: ItemPreviewProps) {
             <h2 
                 className="bg-[#36c0a9] bg-opacity-50 border border-[#36c0a9] 
                 backdrop-blur-md shadow-md shadow-[#000000a6]
-                w-full mx-auto text-center font-bold text-xl text-opacity-55
+                w-full mx-auto text-center font-bold text-xl
                 rounded-xl p-3 max-[620px]:mt-[20px]
-                min-[620px]:translate-y-[-30px] min-[620px]:translate-x-[30px]">
+                min-[620px]:translate-y-[-30px] min-[620px]:translate-x-[30px] text-white">
                 {item.name}
             </h2>
         </>

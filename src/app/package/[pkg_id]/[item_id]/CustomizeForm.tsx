@@ -70,7 +70,7 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
                 {item.name}
             </h3>
             <div className="grid grid-cols-[50px_auto] gap-3 items-center">
-                <p className="font-bold text-lg w-[50px]"
+                <p className="font-bold text-lg w-[50px] text-white"
                     style={!is_color_diversed && {display: "none"} || {}}>
                     Color
                 </p>
@@ -79,7 +79,7 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
                     selectedColor={selectedColor}
                     onColorChange={setOnColorChange} />
 
-                <p className="font-bold text-lg w-[50px]"
+                <p className="font-bold text-lg w-[50px] text-white"
                     style={!is_clothing && {display: "none"} || {}}>
                     Size
                 </p>
@@ -101,7 +101,7 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
             <button 
                 onClick={onCustomize}
                 className="bg-teal-600 mt-[50px] w-full p-3 rounded-xl
-                    font-black text-lg">
+                    font-black text-lg text-white">
                 { next_item ? 
                     "Grab & Go To Next" :
                     "Checkout" }

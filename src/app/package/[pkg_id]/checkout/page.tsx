@@ -151,28 +151,28 @@ export default function CheckoutPage() {
                     className="md:max-w-[440px] p-3 bg-white 
                         bg-opacity-10 backdrop-blur-md border-r border-white border-opacity-15">
                     <h1
-                        className="font-bold text-2xl mb-[20px]">
+                        className="font-bold text-2xl mb-[20px] text-white">
                         Let&rsquo;s place your order!
                     </h1>
                     
-                    <h2 className="mb-[20px] max-md:hidden">
+                    <h2 className="mb-[20px] max-md:hidden text-white">
                         Here&rsquo;s the summary of your order:
                     </h2>
 
                     <div className="border-dashed border-2 border-white 
                         border-opacity-50 w-fit p-3 mb-[20px] max-md:mx-auto">
                         <div className="mb-[20px]">
-                            <span className="w-[70px] inline-block">Package</span>:
-                            <span className="inline-block ms-[20px] font-bold">{thePackage.name}</span> <br />
+                            <span className="w-[70px] inline-block text-white">Package</span>:
+                            <span className="inline-block ms-[20px] font-bold text-white">{thePackage.name}</span> <br />
 
-                            <span className="w-[70px] inline-block">Price</span>:
-                            <span className="inline-block ms-[20px] font-bold">{thePackage.price} LKR</span> <br />
+                            <span className="w-[70px] inline-block text-white">Price</span>:
+                            <span className="inline-block ms-[20px] font-bold text-white">{thePackage.price} LKR</span> <br />
                         </div>
-                        <ol className="list-decimal list-inside">
+                        <ol className="list-decimal list-inside text-white">
                             {item_list}
                         </ol>
                     </div>
-                    <div className="text-lg w-full">
+                    <div className="text-lg w-full text-white">
                         <p className="font-bold mb-[10px]">IMPORTANT!</p>
                         <p className="mb-[20px]">
                             To complete the order, please download your invoice below.
@@ -190,8 +190,8 @@ export default function CheckoutPage() {
                     <button 
                         onClick={onInvoiceDownload}
                         className="bg-teal-600 w-full font-bold p-3
-                            rounded-lg flex justify-center gap-3">
-                        Dowload invoice <Download />
+                            rounded-lg flex justify-center gap-3 text-white">
+                        Dowload invoice <Download color="white"/>
                     </button>
                 </div>
             </div>

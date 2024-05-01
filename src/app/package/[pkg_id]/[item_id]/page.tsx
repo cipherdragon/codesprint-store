@@ -41,11 +41,11 @@ export default function PackagePage(props: PackagePageProps) {
                 <div 
                     className="bg-white bg-opacity-10 text-center shadow-md
                         drop-shadow-md border-b border-opacity-20 border-white">
-                    <div className="p-3 font-bold text-lg opacity-90">
+                    <div className="p-3 font-bold text-lg opacity-90 text-white">
                         { pkg?.name }
                     </div>
                     <hr className="border-0 border-b border-b-white opacity-20"/>
-                    <div className="text-sm p-1 font-bold opacity-40">
+                    <div className="text-sm p-1 font-bold opacity-40 text-white">
                         Item {item_index! + 1} of {pkg.items.length}
                     </div>
                     <hr className="border-0 border-b border-b-white opacity-20"/>

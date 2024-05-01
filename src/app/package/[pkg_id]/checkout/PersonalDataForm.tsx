@@ -107,7 +107,7 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                 className="max-w-[450px] object-cover object-center max-lg:hidden" />
 
             <form className="p-3 lg:min-w-[400px]">
-                <h2 className="text-2xl font-bold mb-[30px]">
+                <h2 className="text-2xl font-bold mb-[30px] text-white">
                     Who are you btw?
                 </h2>
 
@@ -120,7 +120,7 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                             type="text" 
                             id="full_name" 
                             name="full_name" 
-                            className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20"
+                            className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white"
                             placeholder="John Doe"
                             value={fullName}
                             ref={nameRef}
@@ -134,7 +134,7 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                             type="email" 
                             id="email" 
                             name="email" 
-                            className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20"
+                            className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white"
                             placeholder="mail@example.com"
                             value={email}
                             ref={emailRef}
@@ -148,7 +148,7 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                             type="tel" 
                             id="phone" 
                             name="phone" 
-                            className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20"
+                            className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white"
                             placeholder="0712345678"
                             value={phone}
                             ref={phoneRef}
@@ -161,7 +161,7 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                         <textarea 
                             id="address" 
                             name="address" 
-                            className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20"
+                            className="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white"
                             placeholder="123, Example Street, Colombo 05"
                             value={address}
                             ref={addressRef}
