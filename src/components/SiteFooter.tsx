@@ -107,7 +107,7 @@ export default function SiteFooter() {
                 </div>
 
                 <div className="border-t border-gray-700 text-center py-4">
-                    <p>Copyright 2024 - CodeSprint 8 Merch Store</p>
+                    <p>Copyright 2024 - CodeSprint 8 </p>
                 </div>
             </div>
         </footer>
