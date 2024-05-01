@@ -4,26 +4,26 @@ import { Items } from "./Items";
 export const Packages :PackageData[] = [
     {
         id: 1,
-        name: "Prime",
+        name: "Cosmic Collection",
         price: 2350, // preorder - 2350/=
         real_price: 2650,
-        thumbnail: "https://dydxmerch.shop/cdn/shop/files/Builders_white_750x.jpg?v=1707475443",
+        thumbnail: "/package-thumbs/cosmic-collection.webp",
         items: [Items[0], Items[2], Items[3]]
     },
     {
         id: 2,
-        name: "Opulence",
+        name: "Adventure Attire",
         price: 3550, // preorder - 3550/=
         real_price: 3750,
-        thumbnail: "https://dydxmerch.shop/cdn/shop/files/hat_750x.jpg?v=1710341375",
+        thumbnail: "/package-thumbs/adventure-attire.webp",
         items: [Items[1], Items[2], Items[3]]
     },
     {
         id: 3,
-        name: "Prestige",
+        name: "Prestige Combo",
         price: 5200, // preorder - 5250/=
         real_price: 5500,
-        thumbnail: "https://dydxmerch.shop/cdn/shop/files/hoodie_white_750x.jpg?v=1707475471",
+        thumbnail: "/package-thumbs/prestige-combo.webp",
         items: [Items[0], Items[1], Items[2], Items[3]]
     }
 ]

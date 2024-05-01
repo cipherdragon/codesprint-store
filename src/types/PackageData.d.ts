@@ -1,6 +1,6 @@
 import type ItemData from "./ItemData";
 
-export type PackageNameType = "Prime" | "Opulence" | "Prestige";
+export type PackageNameType = "Cosmic Collection" | "Adventure Attire" | "Prestige Combo";
 
 export default interface PackageData {
     id: number;
