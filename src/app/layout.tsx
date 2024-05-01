@@ -19,7 +19,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={inter.className}>
         <SiteHeader />
         {children}
-        <SiteFooter />
+        <div className="h-[50px]"></div>
+        {/* <SiteFooter /> */}
       </body>
     </html>
   );
