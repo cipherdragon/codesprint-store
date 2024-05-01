@@ -13,8 +13,9 @@ export default function ItemPreview({ item }: ItemPreviewProps) {
     const thumbnails = item.thumbnail.map((src, index) => 
         <img key={index} src={src} alt={item.name} width={60} height={60}
             className={`max-w-[60px] max-h-[60px] object-cover rounded-lg
-                border-2 border-green-900 cursor-pointer
-                ${index === thumbIndex && "!border-green-400"}`}
+                border-2 border-green-800 cursor-pointer
+                ${index === thumbIndex && "!border-green-400 !max-sm:bg-green-400"}
+                max-sm:h-[3px] max-sm:bg-greeen-800 overflow-hidden max-sm:rounded-none`}
             onClick={_ => setThumbIndex(index)} />
     );
 
@@ -26,7 +27,8 @@ export default function ItemPreview({ item }: ItemPreviewProps) {
                 border-opacity-30 shadow-lg shadow-[#000000a6]
                 min-[620px]:translate-x-[-80px] min-[620px]:translate-y-[50px]
                 min-[620px]:max-w-[350px] min-[620px]:w-max w-full 
-                max-[620px]:mb-[20px] justify-between">
+                max-[620px]:mb-[20px] justify-between max-sm:!bg-opacity-0
+                max-sm:!border-none max-sm:!shadow-none max-sm:!justify-center">
                     { thumbnails }
             </div>
             <img
