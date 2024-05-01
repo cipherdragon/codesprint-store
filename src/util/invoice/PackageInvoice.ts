@@ -6,14 +6,14 @@ import PackageData from "@/types/PackageData";
 
 const order_instructions = 
     "Download this invoice for later reference. \n\n" + 
-    "To complete the order, please deposite the total payment to the bank account given " + 
+    "To complete the order, please deposit the payment to the bank account given " + 
     "below. Then submit this invoice and the bank receipt/screen shot/proof of payment " + 
-    "to https://store.codesprint.lk/submit-invoice. \n\n" + 
+    "to https://codesprint.lk/store-checkout. \n\n" + 
 
-    "Bank: Sampath Bank \n" +
-    "Account Number: 1234567890 \n" +
-    "Account Name: CodeSprint \n" +
-    "Branch: Colombo";
+    "Acc no: 8001874231\n" +
+    "Name: V Kavishcan\n" +
+    "Bank: Commercial Bank\n" +
+    "Branch: wellawatta";
 
 export class PackageInvoice {
     private item_list : ShoppingCartType;

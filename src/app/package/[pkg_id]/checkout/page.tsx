@@ -175,16 +175,16 @@ export default function CheckoutPage() {
                     <div className="text-lg w-full text-white">
                         <p className="font-bold mb-[10px]">IMPORTANT!</p>
                         <p className="mb-[20px]">
-                            To complete the order, please download your invoice below.
-                            Then deposit the total amount to the following bank account
-                            and submit both invoice and the deposit slip to the form given
-                            below.
+                            To complete the order, please download your invoice. <br /><br />
+                            Deposit the payment to the following bank account
+                            and submit both invoice and the deposit slip to the google
+                            form given below.
                         </p>
                         <p className="leading-6 text-base font-bold mb-[30px]">
-                            Bank: Bank of Ceylon <br />
-                            Account Number: 1234567890 <br />
-                            Account Name: Your Name <br />
-                            Branch: Colombo
+                            Acc no: 8001874231 <br />
+                            Name: V Kavishcan <br />
+                            Bank: Commercial Bank <br />
+                            Branch: wellawatta
                         </p>
                     </div>
                     <button 
