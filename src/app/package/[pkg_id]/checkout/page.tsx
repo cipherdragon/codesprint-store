@@ -7,7 +7,7 @@ import { Packages as pkg_list } from "@/db/Packages";
 import { Download } from "react-feather";
 
 import PersonalDataForm from "./PersonalDataForm";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PackageData from "@/types/PackageData";
 import { PackageInvoice } from "@/util/invoice/PackageInvoice";
 
@@ -59,6 +59,8 @@ export default function CheckoutPage() {
     const [address, setAddress] = useState("");
     const [emptinessIndicator, setEmptinessIndicator] = useState(false);
     const [isFormFilled, setIsFormFilled] = useState(false);
+
+    const invoiceAnchorRef = useRef<HTMLAnchorElement>(null);
 
     const item_list = [];
     
@@ -125,8 +127,13 @@ export default function CheckoutPage() {
         invoice.setPackage(thePackage!);
         invoice.setCart(items);
 
-        invoice.downloadInvoice();
-        router.push(`/package/${thePackage.id}/checkout/thankyou`);
+        const dataurl = invoice.downloadInvoice();
+        invoiceAnchorRef.current!.href = URL.createObjectURL(dataurl);
+        invoiceAnchorRef.current!.click();
+        
+        setTimeout(() => {
+            router.push(`/package/${thePackage.id}/checkout/thankyou`);
+        }, 500);
     }
 
     return (
@@ -210,6 +217,11 @@ export default function CheckoutPage() {
                             rounded-lg flex justify-center gap-3 text-white">
                         Download Invoice <Download color="white"/>
                     </button>
+                    <a href="" 
+                        ref={invoiceAnchorRef} 
+                        download={"codesprint-store-invoice.pdf"} 
+                        className="invisible h-0 w-0 overflow-hidden"
+                        target="_blank">Dowload</a>
                 </div>
             </div>
         </div>

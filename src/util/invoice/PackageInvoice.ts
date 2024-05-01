@@ -154,8 +154,8 @@ export class PackageInvoice {
         this.doc.text(text_lines, 20, y_position, { align: "left" });
     }
 
-    downloadInvoice() : void {
+    downloadInvoice() : Blob {
         this.generateInvoice();
-        this.doc.save(`codesprint-merch-invoice.pdf`);
+        return this.doc.output('blob');
     }
 }
