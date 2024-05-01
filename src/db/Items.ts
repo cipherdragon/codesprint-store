@@ -27,7 +27,7 @@ export const Items : ItemData[] = [
     },
     {
         id: 3,
-        name: "Wrist Band (Free!)",
+        name: "Wrist Band (FREE!)",
         price: 200, // dont put these prices
         thumbnail: [
             "/product-thumbnails/wristband-1.webp",
@@ -38,7 +38,7 @@ export const Items : ItemData[] = [
     },
     {
         id: 4,
-        name: "Sticker Pack (Free!)",
+        name: "Sticker Pack (FREE!)",
         price: 500, // dont put these prices
         thumbnail: ["/product-thumbnails/stickers.webp"],
         colors: [],
