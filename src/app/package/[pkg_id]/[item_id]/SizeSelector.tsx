@@ -13,8 +13,8 @@ export default function SizeSelector(props : ColorSelectorProps) {
     const { item, onSizeChange, selectedSize } = props;
 
     useEffect(() => {
-        if (item.colors.length == 1) {
-            onSizeChange(item.colors[0])
+        if (item.sizes.length == 1) {
+            onSizeChange(item.sizes[0])
         } 
     }, [])
 

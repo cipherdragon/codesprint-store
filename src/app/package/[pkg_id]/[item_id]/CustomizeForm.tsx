@@ -49,12 +49,12 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
             return;
         }
 
-        const size = selectedSize ? selectedSize : undefined;
-        const color = selectedColor ? selectedColor : undefined;
+        const size = selectedSize ? selectedSize : "N/A";
+        const color = selectedColor ? selectedColor : "N/A";
 
         // Save the customization
         setPackage(thePackage.id);
-        addItem(item.id, size!, color!, 1);
+        addItem(item.id, size, color, 1);
 
         // Redirect to next item or checkout
         const next_url = next_item ? 

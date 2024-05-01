@@ -66,8 +66,8 @@ export default function CheckoutPage() {
 
     for (let key in items) {
         const item = thePackage.items.find((i) => i.id == Number(key));
-        const size = items[key].size ? `(${items[key].size})` : "";
-        const color = items[key].color ? `(${items[key].color})` : "";
+        const size = items[key].size !== "N/A" ? `(${items[key].size})` : "";
+        const color = items[key].color !== "N/A" ? `(${items[key].color})` : "";
         const quantity = items[key].quantity;
 
         const li_item = <li key={key}>[x{quantity}] {item?.name} {size} {color}</li>
