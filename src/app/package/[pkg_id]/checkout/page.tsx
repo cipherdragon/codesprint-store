@@ -184,7 +184,7 @@ export default function CheckoutPage() {
                             Acc no: 8001874231 <br />
                             Name: V Kavishcan <br />
                             Bank: Commercial Bank <br />
-                            Branch: wellawatta
+                            Branch: Wellawatta
                         </p>
                     </div>
                     <button 
