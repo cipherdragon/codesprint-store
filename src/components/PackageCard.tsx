@@ -19,8 +19,13 @@ export default function PackageCard({ data } : { data: Package } ) {
                 <h3 className="text-xl font-bold text-white">
                     { data.name }
                 </h3>
-                <span className="block font-bold text-sm text-white opacity-55 mt-[8px]">
+                <span className="block font-bold text-base text-white opacity-55 mt-[8px]">
                     { data.price } LKR
+                    { data.real_price !== data.price &&
+                        <span className="line-through opacity-60 text-sm ml-[5px]">
+                            { data.real_price } LKR
+                        </span>
+                    }
                 </span>
                 <ul className="mt-[15px] text-sm  font-bold opacity-90 bg-[#67ac844f]
                     p-3 rounded-2xl translate-x-[-50px] backdrop-blur-md shadow-lg 
