@@ -22,7 +22,7 @@ export const Items : ItemData[] = [
             "/product-thumbnails/adventurer-hoodie-2.webp",
             "/product-thumbnails/adventurer-hoodie-3.webp",
         ],
-        colors: ["white", "black"],
+        colors: ["black"],
         sizes: ["S", "M", "L", "XL"],
     },
     {
