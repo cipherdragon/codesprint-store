@@ -12,6 +12,7 @@ import PackageData from "@/types/PackageData";
 import { PackageInvoice } from "@/util/invoice/PackageInvoice";
 
 import { Toaster, toast } from "sonner";
+import awaitable from "@/util/asyncUtil";
 
 export default function CheckoutPage() {
     const [thePackage, setThePackage] = useState<PackageData>();
@@ -73,14 +74,52 @@ export default function CheckoutPage() {
         item_list.push(li_item);
     }
 
-    const onInvoiceDownload = () => {
+    const onInvoiceDownload = async () => {
         if (!isFormFilled) {
             toast.error("Please fill out personal information");
             setEmptinessIndicator(true);
             return;
         }
 
-        const invoice = new PackageInvoice("INV-123", fullName, email, phone);
+        const theOrder = [];
+        for (let key in items) {
+            theOrder.push({
+                "item_id": key,
+                "quantity": items[key].quantity,
+                "size": items[key].size,
+                "color": items[key].color,
+            })
+        }
+
+        const [response, error] = await awaitable(fetch("/api/order/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: fullName,
+                email: email,
+                address: address,
+                phone: phone,
+                package_name: thePackage.name,
+                order: theOrder,
+            })
+        }));
+
+        if (error) {
+            toast.error("Sorry, there's a network error. May be try again...?");
+            return;
+        }
+
+        if (!response.ok) {
+            toast.error("Sorry, we faced an error. Please try again later.");
+            return;
+        }
+
+        const data = await response.json();
+        const invoice_id : string = data.invoice_id!;
+
+        const invoice = new PackageInvoice(invoice_id, fullName, email, phone);
         invoice.setPackage(thePackage!);
         invoice.setCart(items);
 
