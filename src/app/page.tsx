@@ -39,10 +39,10 @@ export default function Home() {
                     <ol className="list-decimal list-inside space-y-2 text-white text-xl">
                         <li>Choose your desired package from the Celestial Collection.</li>
                         <li>Customize the size and color to your preference.</li>
-                        <li>Proceed to checkout by clicking "Next."</li>
+                        <li>Proceed to checkout by clicking &quot;Next.&quot;</li>
                         <li>Download the invoice for your purchase.</li>
                         <li>Fill out the form with your invoice details and attach the bank receipt.</li>
-                        <li>You're all set! You can now go home and place another order.</li>
+                        <li>You&apos;re all set! You can now go home and place another order.</li>
                     </ol>
                 </div>
             </div>
