@@ -40,7 +40,7 @@ export const Items : ItemData[] = [
         id: 4,
         name: "CodeSprint 8 Sticker Pack",
         price: 500, // dont put these prices
-        thumbnail: ["https://static-01.daraz.lk/p/012dce1bce922adf41e734aa80032660.jpg_300x0q75.webp"],
+        thumbnail: ["/product-thumbnails/stickers.webp"],
         colors: [],
         sizes: [],
     },
