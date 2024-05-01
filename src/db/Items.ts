@@ -10,7 +10,7 @@ export const Items : ItemData[] = [
             "/product-thumbnails/cosmic-tee-2.webp",
             "/product-thumbnails/cosmic-tee-3.webp",
         ],
-        colors: ["white", "black"],
+        colors: ["#11525a", "black", "#525252"],
         sizes: ["3XS","2XS","XS","S", "M", "L", "XL", "2XL", "3XL"],
     },
     {
@@ -23,11 +23,11 @@ export const Items : ItemData[] = [
             "/product-thumbnails/adventurer-hoodie-3.webp",
         ],
         colors: ["black"],
-        sizes: ["S", "M", "L", "XL"],
+        sizes: ["XS", "S", "M", "L", "XL", "2XL"],
     },
     {
         id: 3,
-        name: "Wrist Band (FREE!)",
+        name: "Wrist Band",
         price: 200, // dont put these prices
         thumbnail: [
             "/product-thumbnails/wristband-1.webp",

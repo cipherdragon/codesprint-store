@@ -21,7 +21,7 @@ export const Packages :PackageData[] = [
     {
         id: 3,
         name: "Prestige",
-        price: 5250, // preorder - 5250/=
+        price: 5200, // preorder - 5250/=
         real_price: 5500,
         thumbnail: "https://dydxmerch.shop/cdn/shop/files/hoodie_white_750x.jpg?v=1707475471",
         items: [Items[0], Items[1], Items[2], Items[3]]
