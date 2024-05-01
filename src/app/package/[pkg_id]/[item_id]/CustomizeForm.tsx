@@ -104,7 +104,7 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
                     font-black text-lg text-white">
                 { next_item ? 
                     "Grab & Go To Next" :
-                    "Checkout" }
+                    "Grab & Checkout" }
             </button>
         </div>
     );
