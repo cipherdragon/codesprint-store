@@ -5,6 +5,7 @@ import { Packages as package_list } from "@/db/Packages";
 
 import styles from "../styles/Home.module.css"
 import PackageCard from "@/components/PackageCard";
+import EarlyBirdTimer from "@/components/EarlyBirdTimer";
 
 export const metadata : Metadata = {
     title: "Codesprint Store",
@@ -37,9 +38,7 @@ export default function Home() {
                 </div>
 
                 {/* This is for git */}
-                <div className="bg-red-400">
-                    Hello
-                </div>
+                <EarlyBirdTimer />
 
                 <div className="bg-white bg-opacity-5 border border-white 
                     border-opacity-15 backdrop-blur-md rounded-2xl">
