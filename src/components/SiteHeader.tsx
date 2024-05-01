@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function SiteHeader() {
     return (
-        <header className='proper-padded-container'>
+        <header className='proper-padded-container relative z-50'>
 
         <div
             className='proper-padded-container flex justify-between p-[20px] 

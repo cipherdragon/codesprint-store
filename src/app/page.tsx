@@ -20,7 +20,15 @@ export default function Home() {
     return (
         <>
         <section className="proper-padded-container">
-            <div className={styles.hero}></div>
+            <div className="bg-[url('/hero-mobile.webp')] sm:bg-[url('/hero-desktop.webp')] w-full h-screen 
+                    absolute top-0 left-0 bg-cover bg-center" />
+            <div className={styles.hero}>
+                <h1 className="font-black text-4xl sm:text-5xl text-center max-w-[700px]">
+                    <span className="text-teal-500">Explore&nbsp;</span>
+                    the Celestial Collection of 
+                    <span className="text-teal-500">&nbsp;CodeSprint 8</span>
+                </h1>
+            </div>
         </section>
         <section
             className="proper-padded-container">

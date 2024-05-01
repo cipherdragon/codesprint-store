@@ -1,8 +1,8 @@
 .hero {
-    @apply bg-white bg-opacity-5 border border-white border-opacity-15 
-        backdrop-blur-md mb-[50px] rounded-2xl;
+    @apply mb-[50px] flex items-center justify-center h-screen;
 
-    height: calc(100vh - var(--header-height) + 30px);
+    transform: translateY(calc(-1 * var(--header-height) + 30px));
+    /* height: calc(100vh - var(--header-height) + 30px); */
 }
 
 /* 600px is assumed to be mobiles */
