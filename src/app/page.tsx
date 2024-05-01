@@ -8,7 +8,7 @@ import PackageCard from "@/components/PackageCard";
 import EarlyBirdTimer from "@/components/EarlyBirdTimer";
 
 export const metadata : Metadata = {
-    title: "Codesprint Store",
+    title: "CodeSprint Store",
 }
 
 export default function Home() {
