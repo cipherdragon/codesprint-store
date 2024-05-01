@@ -1,9 +1,23 @@
 import Image from "next/image";
 import codesprintLogo from "../assets/codesprint-logo.webp";
 import { Facebook, Instagram, Linkedin, Youtube } from "react-feather";
-import { useEffect } from "react";
+import { Packages as package_list } from "@/db/Packages";
+import Link from "next/link";
 
 export default function SiteFooter() {
+
+    const packages = package_list.map((pkg) => {
+        return (
+            <li key={pkg.id} className="hover:underline">
+                <Link href={`/package/${pkg.id}`} prefetch={false}>
+                    <button>
+                        {pkg.name} 
+                    </button>
+                </Link>
+            </li>
+        )
+    })
+
     return (
         <footer className="proper-padded-container">
             <div
@@ -20,47 +34,14 @@ export default function SiteFooter() {
                             <h3 className="text-lg font-bold text-[#15c392]
                                 text-opacity-50">
                                 Merch Store
-                            </h3>
-                            <ul className="font-bold text-white text-opacity-40">
-                                <li>
-                                    <a href="#" className="hover:underline">
-                                        Cosmic Collection
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="hover:underline">
-                                        Adventure Attire
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="hover:underline">
-                                        Prestige Combo
-                                    </a>
-                                </li>
-                            </ul>
+                            </h3> 
+                            <ul>
+                                {packages}
+                            </ul>  
                         </div>
                     </div>
 
-                    <div className="mb-6 md:mb-0">
-                        <h3 className="text-lg font-semibold text-[#15c392]">SUPPORT</h3>
-                        <ul className="mt-4 space-y-4">
-                            <li>
-                                <a href="#" className="hover:underline">
-                                    Payment Details
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="hover:underline">
-                                    Shipping & Returns
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="hover:underline">
-                                    Contact Us
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                     
 
                     <div className="mb-6 md:mb-0">
                         <h3 className="text-lg font-semibold text-[#15c392]">ABOUT US</h3>
@@ -81,11 +62,17 @@ export default function SiteFooter() {
 
                     <div className="mb-6 md:mb-0">
                         <h3 className="text-lg font-semibold text-[#15c392]">CONTACT US</h3>
-                        <div className="mt-4 space-y-4">
-                            <p>📞 +94 76 668 4337</p>
-                            <p>✉️ kavishcan2002@gmail.com</p>
+                        <div className="mt-4 ">
+                            <p> Kavishcan</p>
+                            <p> +94 76 668 4337</p>
                         </div>
-                        <div className="mt-6">
+                        <div className="mt-4 ">
+                            <p> Chanumi Dewanga</p>
+                            <p> +94 71 142 2301</p>
+                        </div>
+                    </div>
+
+                    <div className="mb-6 md:mb-0">
                             <h3 className="text-lg font-semibold text-[#15c392]">
                                 FOLLOW US
                             </h3>
@@ -117,7 +104,6 @@ export default function SiteFooter() {
                                 </a>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <div className="border-t border-gray-700 text-center py-4">

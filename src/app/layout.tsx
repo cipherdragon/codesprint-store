@@ -20,7 +20,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <SiteHeader />
         {children}
         <div className="h-[50px]"></div>
-        {/* <SiteFooter /> */}
+        <SiteFooter />
       </body>
     </html>
   );
