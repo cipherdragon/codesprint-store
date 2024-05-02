@@ -5,6 +5,7 @@ import awaitable from "@/util/asyncUtil";
 
 import { packages, GetParamsResult } from "./types";
 import { getOrderStr } from "./OrderStrings";
+import { getDayOfYear, getSecondsOfDay } from "@/util/DateUtils";
 
 function calculatePrice(order_str : string, package_name : packages) {
     const [ validator, price_func ] = package_validators[package_name];
@@ -13,16 +14,19 @@ function calculatePrice(order_str : string, package_name : packages) {
 }
 
 function getInvoiceID() {
-    // Codesprint version + hex(last 6 digits of epoch time) + 2 random digits
-    // 8 + 2B3C + 4D --> 8A2B-3C4D | This is unique enough
+    const version_number = 800_000_000;
 
-    const codesprint_version = "8";
-    const epoch = (new Date().getTime() % Math.pow(10,6)).toString(16);
-    const rand_num_1 = Math.floor(Math.random() * 10).toString();
-    const rand_num_2 = Math.floor(Math.random() * 10).toString();
+    const day_in_year = getDayOfYear();
+    const secs_in_day = getSecondsOfDay();
+    const rand_1 = Math.floor(Math.random() * 35).toString(36);
+    const rand_2 = Math.floor(Math.random() * 35).toString(36);
 
-    const raw_id = `${codesprint_version}${epoch}${rand_num_1}${rand_num_2}`.toUpperCase();
-    return `${raw_id.slice(0, 4)}-${raw_id.slice(4, 8)}`
+    const time_portion = +`${day_in_year}${secs_in_day}`
+    const calculated_portion = (+`${time_portion + version_number}`).toString(36);
+
+    const id = `${calculated_portion}${rand_1}${rand_2}` 
+
+    return `${id.slice(0, 4)}-${id.slice(4,8)}`.toUpperCase();
 }
 
 function getParams(requestBody: any) : GetParamsResult {
