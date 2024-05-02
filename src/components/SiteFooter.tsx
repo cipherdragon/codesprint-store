@@ -28,7 +28,7 @@ export default function SiteFooter() {
                         <Image
                             src={codesprintLogo}
                             alt="Codesprint Logo"
-                            className="max-h-[25px] w-[160px] min-[400px]:w-[200px]"
+                            className="max-h-[35px] w-[160px] min-[400px]:w-[200px]"
                         />
                         <div className="mt-4 space-y-4">
                             <h3 className="text-lg font-bold text-[#15c392]
