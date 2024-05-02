@@ -12,6 +12,7 @@ export const Items : ItemData[] = [
         ],
         colors: ["black", "gray", "#11525a"],
         sizes: ["3XS","2XS","XS","S", "M", "L", "XL", "2XL", "3XL"],
+        material: "Close Hole",
     },
     {
         id: 2,
@@ -24,6 +25,7 @@ export const Items : ItemData[] = [
         ],
         colors: ["black"],
         sizes: ["XS", "S", "M", "L", "XL", "2XL"],
+        material: "Cotton",
     },
     {
         id: 3,
@@ -35,6 +37,7 @@ export const Items : ItemData[] = [
         ],
         colors: ["black"],
         sizes: [],
+        material: "",
     },
     {
         id: 4,
@@ -43,5 +46,6 @@ export const Items : ItemData[] = [
         thumbnail: ["/product-thumbnails/stickers.webp"],
         colors: [],
         sizes: [],
+        material: "",
     },
 ]

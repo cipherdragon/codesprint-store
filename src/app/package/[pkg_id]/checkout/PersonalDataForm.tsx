@@ -169,8 +169,9 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
                     </div>
                 </div>
                 <p className="mt-[10px] text-white">
-                    Note: Delivery will be offered for customers out of Colombo.
-                    Please note that an extra delivery fee will be charged.
+                    Note: Delivery will be offered only for customers outside of
+                    Colombo. Please note that you must pay an extra delivery fee
+                    when it is delivered.
                 </p>
             </form>
         </div>

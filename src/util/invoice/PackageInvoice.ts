@@ -97,7 +97,7 @@ export class PackageInvoice {
         this.doc.setFont("Helvetica", "", "");
         this.doc.setFontSize(12);
 
-        this.doc.text(`#${this.invoice_id}`, 90, y_position);
+        this.doc.text(`${this.invoice_id}`, 90, y_position);
 
         this.doc.setFont("Helvetica", "", "Bold");
         this.doc.setFontSize(12);

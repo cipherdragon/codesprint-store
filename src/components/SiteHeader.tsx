@@ -17,7 +17,7 @@ export default function SiteHeader() {
                     priority={true}
                     src={codesprintLogo} 
                     alt="Codesprint Logo" 
-                    className='max-h-[25px] w-[160px] min-[400px]:w-[200px] cursor-pointer'/>
+                    className='max-h-[35px] w-[160px] min-[400px]:w-[200px] cursor-pointer'/>
             </Link>
             <nav
                 className='flex gap-[30px] items-center'>
