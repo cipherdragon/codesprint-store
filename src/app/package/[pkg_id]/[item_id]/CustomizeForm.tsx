@@ -69,7 +69,7 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
             <h3 className="text-white text-3xl font-bold mb-[50px] text-center mobile:text-start">
                 {item.name}
             </h3>
-            <div className="grid grid-cols-[50px_auto] gap-3 items-center">
+            <div className="grid grid-cols-[75px_auto] gap-3 items-center">
                 <p className="font-bold text-lg w-[50px] text-white"
                     style={!is_color_diversed && {display: "none"} || {}}>
                     Color
@@ -78,6 +78,21 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
                     item={item} 
                     selectedColor={selectedColor}
                     onColorChange={setOnColorChange} />
+
+                {
+                    item.material &&
+                        <p className="font-bold text-lg w-[50px] text-white"
+                            style={!is_clothing && {display: "none"} || {}}>
+                            Material
+                        </p>
+                }
+                {
+                    item.material &&
+                        <p className="font-normal ml-[2px] text-lg text-start text-neutral-100"
+                            style={!is_clothing && {display: "none"} || {}}>
+                            {item.material}
+                        </p>
+                }
 
                 <p className="font-bold text-lg w-[50px] text-white"
                     style={!is_clothing && {display: "none"} || {}}>
