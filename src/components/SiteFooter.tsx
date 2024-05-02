@@ -48,7 +48,7 @@ export default function SiteFooter() {
                         <ul className="mt-4 space-y-4">
                             <li>
                                 <a href="https://codesprint.lk/" className="hover:underline text-white">
-                                    Main website
+                                    Main Website
                                 </a>
                             </li>
                             <li>

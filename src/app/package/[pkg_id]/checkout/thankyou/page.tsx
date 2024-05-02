@@ -41,7 +41,7 @@ export default function ThankYou() {
                             className="font-bold text-teal-400 p-3 flex gap-[10px]
                                 rounded-lg w-[290px] justify-center items-center
                                 border-2 border-teal-400">
-                            Go Home!
+                            Go Back to Home Page!
                             <Home />
                         </button>
                     </a>
