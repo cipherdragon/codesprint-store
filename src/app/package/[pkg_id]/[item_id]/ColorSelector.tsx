@@ -17,7 +17,7 @@ export default function ColorSelector({ item, onColorChange, selectedColor }: Co
     }, [])
 
     return (
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
             {item.colors.map((color) => 
                 <div 
                     key={color} 
