@@ -1,5 +1,5 @@
 import checkoutImg_1 from "@/assets/checkout-img-1.webp";
-import { isEmailValid, isNameValid, isPhoneValid } from "@/util/Validator";
+import { QA_KEYWORD, isEmailValid, isNameValid, isPhoneValid } from "@/util/Validator";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -36,6 +36,15 @@ export default function PersonalDataForm(props: PersonalDataFormProps) {
     const addressRef = useRef<HTMLTextAreaElement>(null);
     
     const [isFormFilled, setIsFormFilled] = useState(false);
+
+    useEffect(() => {
+        if (fullName !== QA_KEYWORD) return;
+
+        onFullNameChange(QA_KEYWORD);
+        onEmailChange(QA_KEYWORD);
+        onPhoneChange(QA_KEYWORD);
+        onAddressChange(QA_KEYWORD);
+    }, [fullName])
 
     useEffect(() => {
         const formFilled = fullName && email && address && phone;
