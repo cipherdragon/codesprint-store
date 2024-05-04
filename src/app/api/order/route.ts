@@ -2,6 +2,7 @@ import { google } from "googleapis";
 import { NextRequest } from "next/server";
 import { package_list, package_validators } from "./(package_validation)/package_validators";
 import awaitable from "@/util/asyncUtil";
+import * as validator from "@/util/Validator";
 
 import { packages, GetParamsResult } from "./types";
 import { getOrderStr } from "./OrderStrings";
@@ -34,26 +35,22 @@ function getParams(requestBody: any) : GetParamsResult {
     const name = requestBody['name']! as string;
     const email = requestBody['email'];
     const address = requestBody['address'];
-    const phone = "'" + requestBody['phone'];
+    const phone_num = requestBody['phone'];
     const package_name = requestBody['package_name'] as packages;
 
-    if (!orders || !name || !email || !address || !phone || !package_name)
+    if (!orders || !name || !email || !address || !phone_num || !package_name)
         return [null, "Missing required fields"];
 
-    // Name validation (only alphabets and spaces, 200 char limit)
-    if (!/^[a-zA-Z ]{1,200}$/.test(name))
+    if (!validator.isNameValid(name))
         return [null, "Invalid name"];
 
-    // Email validation (simple regex, 200 char limit no equals sign)
-    if (!/^[^=]{1,200}$/.test(email))
+    if (!validator.isEmailValid(email))
         return [null, "Invalid email"];
 
-    // Address validation (1000 char limit, no equals sign)
-    if (!/^[^=]{1,1000}$/.test(address))
+    if (!validator.isAddressValid(address))
         return [null, "Invalid address"];
 
-    // Phone validation (11 chars, starts with ' followed by 10 digits)
-    if (!/^'[0-9]{10}$/.test(phone))
+    if (!validator.isPhoneValid(phone_num))
         return [null, "Invalid phone number"];
 
     // Package name validation
@@ -63,6 +60,9 @@ function getParams(requestBody: any) : GetParamsResult {
     // Orders validation (array of objects, at least 1 such order)
     if (!Array.isArray(orders) || orders.length === 0)
         return [null, "Invalid orders"];
+
+    const phone = phone_num === validator.QA_KEYWORD ?
+        phone_num : `'${phone_num}`;
 
     return [{name, email, phone, address, package_name, orders}, null]
 }
