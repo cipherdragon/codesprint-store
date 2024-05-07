@@ -8,7 +8,7 @@ export default function SiteFooter() {
 
     const packages = package_list.map((pkg) => {
         return (
-            <li key={pkg.id} className="hover:underline">
+            <li key={pkg.id} className="hover:underline text-white">
                 <Link href={`/package/${pkg.id}`} prefetch={false}>
                     <button>
                         {pkg.name} 
@@ -28,7 +28,7 @@ export default function SiteFooter() {
                         <Image
                             src={codesprintLogo}
                             alt="Codesprint Logo"
-                            className="max-h-[25px] w-[160px] min-[400px]:w-[200px]"
+                            className="max-h-[35px] w-[160px] min-[400px]:w-[200px]"
                         />
                         <div className="mt-4 space-y-4">
                             <h3 className="text-lg font-bold text-[#15c392]
@@ -47,8 +47,8 @@ export default function SiteFooter() {
                         <h3 className="text-lg font-semibold text-[#15c392]">ABOUT US</h3>
                         <ul className="mt-4 space-y-4">
                             <li>
-                                <a href="https://codesprint.lk/" className="hover:underline">
-                                    Main website
+                                <a href="https://codesprint.lk/" className="hover:underline text-white">
+                                    Main Website
                                 </a>
                             </li>
                             <li>
@@ -63,12 +63,12 @@ export default function SiteFooter() {
                     <div className="mb-6 md:mb-0">
                         <h3 className="text-lg font-semibold text-[#15c392]">CONTACT US</h3>
                         <div className="mt-4 ">
-                            <p> Kavishcan</p>
-                            <p> +94 76 668 4337</p>
+                            <p className="text-white"> Kavishcan</p>
+                            <p  className="text-white"> +94 76 668 4337</p>
                         </div>
                         <div className="mt-4 ">
-                            <p> Chanumi Dewanga</p>
-                            <p> +94 71 142 2301</p>
+                            <p  className="text-white"> Chanumi Dewanga</p>
+                            <p  className="text-white"> +94 71 142 2301</p>
                         </div>
                     </div>
 
@@ -82,32 +82,32 @@ export default function SiteFooter() {
                                     href="https://web.facebook.com/CodeSprint"
                                     className="hover:underline"
                                 >
-                                    <Facebook className="cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]" />
+                                    <Facebook className="cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px] text-white" />
                                 </a>
                                 <a
                                     href="https://www.instagram.com/codesprintlk?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw"
                                     className="hover:underline"
                                 >
-                                    <Instagram className="cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]" />
+                                    <Instagram className="cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]  text-white" />
                                 </a>
                                 <a
                                     href="https://www.linkedin.com/company/codesprintlk/"
                                     className="hover:underline"
                                 >
-                                    <Linkedin className="cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]" />
+                                    <Linkedin className="cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]  text-white" />
                                 </a>
                                 <a
                                     href="https://www.youtube.com/@ieeesbiit"
                                     className="hover:underline"
                                 >
-                                    <Youtube className="cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]" />
+                                    <Youtube className="cursor-pointer w-[20px] xsm:w-[30px] xsm:h-[30px]  text-white" />
                                 </a>
                             </div>
                         </div>
                 </div>
 
-                <div className="border-t border-gray-700 text-center py-4">
-                    <p>Copyright 2024 - CodeSprint 8 </p>
+                <div className="border-t border-gray-700 text-center py-4  ">
+                    <p className="text-white">Copyright 2024 - CodeSprint 8 </p>
                 </div>
             </div>
         </footer>

@@ -8,7 +8,7 @@ import PackageCard from "@/components/PackageCard";
 import EarlyBirdTimer from "@/components/EarlyBirdTimer";
 
 export const metadata : Metadata = {
-    title: "Codesprint Store",
+    title: "CodeSprint Store",
 }
 
 export default function Home() {
@@ -36,14 +36,25 @@ export default function Home() {
             <div className="mx-auto w-full">
                 <div className="p-10 rounded-2xl bg-gradient-to-r bg-opacity-10 border border-white border-opacity-15 backdrop-blur-md shadow-lg shadow-neutral-900 my-6 flex flex-col items-center space-y-4">
                     <h2 className="text-center text-4xl font-bold text-white pb-4">Steps to Purchase</h2>
-                    <ol className="list-decimal list-inside space-y-2 text-white text-xl">
-                        <li>Choose your desired package from the Celestial Collection.</li>
-                        <li>Customize the size and color to your preference.</li>
-                        <li>Proceed to checkout by clicking &quot;Next.&quot;</li>
-                        <li>Download the invoice for your purchase.</li>
-                        <li>Fill out the form with your invoice details and attach the bank receipt.</li>
-                        <li>You&apos;re all set! You can now go home and place another order.</li>
-                    </ol>
+                    <div>
+                        <ol className="list-decimal list-inside space-y-2 text-white text-xl mb-[30px]">
+                            <li>Choose your desired package from the Celestial Collection.</li>
+                            <li>Customize the size and color to your preference.</li>
+                            <li>Proceed to checkout by clicking &quot;Next.&quot;</li>
+                            <li>Download the invoice for your purchase.</li>
+                            <li>Fill out the form with your invoice details and attach the bank receipt.</li>
+                            <li>You&apos;re all set! You can now go home and place another order.</li>
+                        </ol>
+                        <ul className="font-bold text-xl w-full list-disc list-inside">
+                            <li className="text-white">
+                                Looking for the payment confirmation form?&nbsp;
+                                <a href="https://codesprint.lk/store-checkout" 
+                                    className="text-teal-300 underline">
+                                    Click here.
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
                 {/* This is for git */}

@@ -11,9 +11,9 @@ export default function ThankYou() {
                     Thank you for your purchase!
                 </h1>
                 <p className='text-lg max-w-[600px] mb-[20px] sm:text-justify'>
-                    We recorded your purchase. By now, you invoice should have downloaded
-                    automatically. Check the invoice for payment bank account and further
-                    details.
+                    We recorded your purchase. By now, your invoice should have been
+                    downloaded automatically. Check the invoice for payment bank 
+                    account and further details.
                 </p>
                 <p className="text-lg max-w-[600px] sm:text-justify mb-[20px]">
                     After you complete your payment, please submit the deposit slip and 
@@ -41,7 +41,7 @@ export default function ThankYou() {
                             className="font-bold text-teal-400 p-3 flex gap-[10px]
                                 rounded-lg w-[290px] justify-center items-center
                                 border-2 border-teal-400">
-                            Go Home!
+                            Go Back to Home Page!
                             <Home />
                         </button>
                     </a>

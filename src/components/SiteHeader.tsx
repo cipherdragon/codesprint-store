@@ -14,9 +14,10 @@ export default function SiteHeader() {
                 my-[20px] xsm:my-[30px] rounded-2xl items-center box-border w-auto'>
             <Link href='/'>
                 <Image 
+                    priority={true}
                     src={codesprintLogo} 
                     alt="Codesprint Logo" 
-                    className='max-h-[25px] w-[160px] min-[400px]:w-[200px] cursor-pointer'/>
+                    className='max-h-[35px] w-[160px] min-[400px]:w-[200px] cursor-pointer'/>
             </Link>
             <nav
                 className='flex gap-[30px] items-center'>

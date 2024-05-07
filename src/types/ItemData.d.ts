@@ -5,4 +5,5 @@ export default interface ItemData {
     thumbnail: string[];
     colors: string[];
     sizes: string[];
+    material: string;
 }
