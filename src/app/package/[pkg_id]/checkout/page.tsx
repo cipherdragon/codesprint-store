@@ -1,6 +1,6 @@
 "use client";
 
-import { getPackage, getItems, ShoppingCartType } from "@/db/ShoppingCart";
+import { getPackage, getItems, ShoppingCartType, loadCart } from "@/db/ShoppingCart";
 import { useRouter } from "next/navigation";
 
 import { Packages as pkg_list } from "@/db/Packages";
@@ -20,34 +20,16 @@ export default function CheckoutPage() {
     const router = useRouter();
 
     useEffect(() => {
-        let package_id = getPackage();
-        let thePackage = pkg_list.find((p) => p.id === package_id);
-        let items = getItems();
-
-        if (!thePackage || !Object.keys(items).length) {
-            const shopping_cart = localStorage.getItem("shopping_cart");
-
-            if (shopping_cart) {
-                const cart = JSON.parse(shopping_cart);
-
-                package_id = cart.package_id;
-                thePackage = pkg_list.find((p) => p.id === package_id);
-                items = cart.items;
-            }
-        }
-
-        if (!thePackage || !Object.keys(items).length) {
+        if (!loadCart(null, null)) {
             alert("Sorry, an error occurred. Please try again in a minute :-(");
 
             router.push("/");
             return;
         }
 
-        localStorage.removeItem("shopping_cart");
-        localStorage.setItem("shopping_cart", JSON.stringify({
-            package_id: package_id,
-            items: items
-        }));
+        let package_id = getPackage();
+        let thePackage = pkg_list.find((p) => p.id === package_id);
+        let items = getItems();
 
         setThePackage(thePackage);
         setItems(items);

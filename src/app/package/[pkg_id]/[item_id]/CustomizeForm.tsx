@@ -7,10 +7,10 @@ import Image from "next/image";
 import SizeChart_T from "@/assets/size_chart_t.webp";
 import SizeChart_H from "@/assets/size_chart_h.webp";
 import PackageData from "@/types/PackageData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { addItem, setPackage } from "@/db/ShoppingCart";
+import { addItem, loadCart, saveCart, setPackage } from "@/db/ShoppingCart";
 import { toast } from "sonner";
 
 type CustomizeFormProps = { thePackage: PackageData, item: ItemData }
@@ -28,6 +28,14 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
     const [selectedSize, setOnSizeChange] = useState<string>("");
 
     const router = useRouter();
+
+    useEffect(() => {
+        setPackage(thePackage.id);
+
+        if (!loadCart(item.id, thePackage.id)) {
+            router.push(`/package/${thePackage.id}`);
+        }
+    }, []);
 
     const onCustomize = () => {
         if (is_clothing && (!selectedColor || !selectedSize)) {
@@ -55,6 +63,7 @@ export default function CustomizeForm({ thePackage, item } : CustomizeFormProps)
         // Save the customization
         setPackage(thePackage.id);
         addItem(item.id, size, color, 1);
+        saveCart();
 
         // Redirect to next item or checkout
         const next_url = next_item ? 
