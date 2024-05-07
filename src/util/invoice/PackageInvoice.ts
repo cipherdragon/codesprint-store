@@ -109,7 +109,7 @@ export class PackageInvoice {
         y_position += 13;
 
         this.doc.text(this.customer_name, 20, y_position); // User name
-        y_position += 10;
+        y_position += 15;
         this.doc.text(this.customer_phone, 20, y_position); // User email
         y_position += 10;
         this.doc.text(this.customer_email, 20, y_position); // User phone number
