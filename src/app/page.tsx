@@ -34,23 +34,26 @@ export default function Home() {
         <section
             className="proper-padded-container">
             <div className="mx-auto w-full">
-                <div className="p-10 rounded-2xl bg-gradient-to-r bg-opacity-10 border border-white border-opacity-15 backdrop-blur-md shadow-lg shadow-neutral-900 my-6 flex flex-col items-center space-y-4">
+                <div className="p-10 rounded-2xl bg-teal-300 bg-opacity-10 border border-white border-opacity-15 backdrop-blur-md shadow-lg shadow-neutral-900 my-6 flex flex-col items-center space-y-4">
                     <h2 className="text-center text-4xl font-bold text-white pb-4">Steps to Purchase</h2>
                     <div>
-                        <ol className="list-decimal list-inside space-y-2 text-white text-xl mb-[30px]">
+                        <ol className="ml-[20px] list-decimal list-outside space-y-2 text-white text-lg mb-[30px]">
                             <li>Choose your desired package from the Celestial Collection.</li>
                             <li>Customize the size and color to your preference.</li>
                             <li>Proceed to checkout by clicking &quot;Next.&quot;</li>
                             <li>Download the invoice for your purchase.</li>
-                            <li>Fill out the form with your invoice details and attach the bank receipt.</li>
+                            <li>After you complete the payment, upload proof of payment to payment verification form</li>
                             <li>You&apos;re all set! You can now go home and place another order.</li>
                         </ol>
-                        <ul className="font-bold text-xl w-full list-disc list-inside">
+                        <p className="max-w-[800px] text-lg mb-[30px]">
+                            Note: Delivery will be offered only for customers outside of Colombo. Please note that you must pay an extra delivery fee when it is delivered.
+                        </p>
+                        <ul className="font-bold text-xl w-full">
                             <li className="text-white">
                                 Looking for the payment confirmation form?&nbsp;
                                 <a href="https://codesprint.lk/store-checkout" 
                                     className="text-teal-300 underline">
-                                    Click here.
+                                    Click here
                                 </a>
                             </li>
                         </ul>
