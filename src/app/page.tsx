@@ -60,9 +60,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-                {/* This is for git */}
-                <EarlyBirdTimer />
-
                 <div className="bg-white bg-opacity-5 border border-white 
                     border-opacity-15 backdrop-blur-md rounded-2xl">
                     <h2 className="p-[50px] text-4xl font-bold text-center py-6 text-white">
