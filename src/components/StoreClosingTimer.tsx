@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function StoreClosingTimer() {
     const [timeLeft, setTimeLeft] = useState("00:00:00:00");
-    const deadline = new Date("June 06, 2024 00:00:00").getTime();
+    const deadline = new Date("June 04, 2024 00:00:00").getTime();
 
     const calculateTimeLeft = () => {
         const now = new Date().getTime();
@@ -50,7 +50,7 @@ export default function StoreClosingTimer() {
                 {timeLeft}
             </h3>
             <h3 className="font-bold text-neutral-300 text-center">
-                Closing on June 5th, 2024!
+                Closing on June 3th, 2024!
             </h3>
         </div>
     )
