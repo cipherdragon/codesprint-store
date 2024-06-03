@@ -42,7 +42,7 @@ export default function Home() {
                                 made from now on will be refunded. 
                             </p>
                             <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
-                                Website's functionality is maintained only for archival
+                                Website&apos;s functionality is maintained only for archival
                                 purposes.
                             </p>
                             <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
