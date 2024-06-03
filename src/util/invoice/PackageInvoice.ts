@@ -12,7 +12,10 @@ const order_instructions =
     "Acc no: 8001874231\n" +
     "Name: V Kavishcan\n" +
     "Bank: Commercial Bank\n" +
-    "Branch: Wellawatta";
+    "Branch: Wellawatta\n\n" +
+    
+    "Note: All payments must be completed by midnight, 3rd June 2024.\n" +
+    "Any payments made after will be refunded and orders will not be considered.\n\n"
 
 export class PackageInvoice {
     private item_list : ShoppingCartType;

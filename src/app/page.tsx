@@ -33,35 +33,24 @@ export default function Home() {
         </section>
         <section
             className="proper-padded-container">
-            <div className="mx-auto w-full">
-                <div className="p-10 rounded-2xl bg-teal-300 bg-opacity-10 border border-white border-opacity-15 backdrop-blur-md shadow-lg shadow-neutral-900 my-6 flex flex-col items-center space-y-4">
-                    <h2 className="text-center text-4xl font-bold text-white pb-4">Steps to Purchase</h2>
-                    <div>
-                        <ol className="ml-[20px] list-decimal list-outside space-y-2 text-white text-lg mb-[30px]">
-                            <li>Choose your desired package from the Celestial Collection.</li>
-                            <li>Customize the size and color to your preference.</li>
-                            <li>Proceed to checkout by clicking &quot;Next.&quot;</li>
-                            <li>Download the invoice for your purchase.</li>
-                            <li>After you complete the payment, upload proof of payment to payment verification form</li>
-                            <li>You&apos;re all set! You can now go home and place another order.</li>
-                        </ol>
-                        <p className="max-w-[800px] text-lg mb-[30px]">
-                            Note: Delivery will be offered only for customers outside of Colombo. Please note that you must pay an extra delivery fee when it is delivered.
-                        </p>
-                        <ul className="font-bold text-xl w-full">
-                            <li className="text-white">
+                <StoreClosingTimer />
+
+                <div className="mx-auto w-full">
+                    <div className="p-10 rounded-2xl bg-teal-300 bg-opacity-10 border border-white border-opacity-30 backdrop-blur-md shadow-lg shadow-neutral-900 my-6 flex flex-col items-center space-y-4">
+                            <p className="font-bold text-xl w-full text-white">
                                 Looking for the payment confirmation form?&nbsp;
                                 <a href="https://codesprint.lk/store-checkout" 
                                     className="text-teal-300 underline">
                                     Click here
                                 </a>
-                            </li>
-                        </ul>
+                            </p>
+                            <p className="font-bold">
+                                Note: We are about to close the store. All payments must be made before
+                                midnight, 3rd June 2024. Any payments made after will be refunded
+                                and orders will not be considered.
+                            </p>
                     </div>
                 </div>
-            </div>
-                {/* This is for git */}
-                <StoreClosingTimer />
 
                 <div className="bg-white bg-opacity-5 border border-white 
                     border-opacity-15 backdrop-blur-md rounded-2xl">
