@@ -21,7 +21,7 @@ export default function ThankYou() {
                 </p>
                 <p className='text-lg max-w-[600px] mb-[20px] sm:text-justify'>
                     Codesprint merch store is officially closed now. We are no longer
-                    accepting orders or payments. Site's functionality is preserved
+                    accepting orders or payments. Site&apos;s functionality is preserved
                     only for archival purposes. 
                 </p>
                 <p className='text-lg max-w-[600px] mb-[20px] sm:text-justify'>
