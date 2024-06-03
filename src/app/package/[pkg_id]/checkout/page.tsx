@@ -122,6 +122,33 @@ export default function CheckoutPage() {
         <div className="proper-padded-container">
             <Toaster richColors position="top-center"/> 
 
+            <div className="mx-auto w-full">
+                <div className="p-4 rounded-lg bg-red-700 bg-opacity-40 border border-red-400 border-opacity-50 backdrop-blur-md shadow-lg shadow-neutral-900 my-6">
+                        <h2 className="text-center text-2xl font-bold mb-[20px]">Store is closed!</h2>
+                        <p className="font-bold max-w-[600px] text-center mx-auto">
+                            Codesprint merch store is officially closed now.
+                            We are no longer accepting orders.  Any payments
+                            made from now on will be refunded. 
+                        </p>
+                        <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
+                            Website's functionality is maintained only for archival
+                            purposes.
+                        </p>
+                        <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
+                            Thank you for your support! 
+                        </p>
+                        <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
+                            If you accidentally made a payment after the deadline, please submit your
+                            proof of payment to the&nbsp;
+                            <a href="https://codesprint.lk/store-refund" 
+                                className="text-teal-300 underline">
+                                    payment refund form
+                            </a>
+                            &nbsp;to claim a refund.
+                        </p>
+                </div>
+            </div>
+
             <PersonalDataForm 
                 email={email} 
                 onEmailChange={setEmail}
@@ -165,26 +192,9 @@ export default function CheckoutPage() {
                         </ol>
                     </div>
                     <div className="text-lg w-full text-white">
-                        <p className="font-bold mb-[10px]">IMPORTANT!</p>
+                        <p className="font-bold mb-[10px]">We no longer accept orders!</p>
                         <p className="mb-[20px]">
-                            To complete the order, please download your invoice. <br /><br />
-                            Deposit the payment to the following bank account
-                            and submit both invoice and the deposit slip to the google
-                            form given below.
-                            <br /><br />
-                            Form:&nbsp;
-                            <a 
-                                href="https://codesprint.lk/store-checkout" 
-                                target="_blank" 
-                                className="underline text-teal-400 font-bold">
-                                https://codesprint.lk/store-checkout
-                            </a>
-                        </p>
-                        <p className="leading-6 text-base font-bold mb-[30px]">
-                            Acc no: 8001874231 <br />
-                            Name: V Kavishcan <br />
-                            Bank: Commercial Bank <br />
-                            Branch: Wellawatta
+                            Functionality is preserved just for archival purposes. <br />
                         </p>
                     </div>
                     <button 

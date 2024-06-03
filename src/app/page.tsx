@@ -33,21 +33,29 @@ export default function Home() {
         </section>
         <section
             className="proper-padded-container">
-                <StoreClosingTimer />
-
                 <div className="mx-auto w-full">
-                    <div className="p-10 rounded-2xl bg-teal-300 bg-opacity-10 border border-white border-opacity-30 backdrop-blur-md shadow-lg shadow-neutral-900 my-6 flex flex-col items-center space-y-4">
-                            <p className="font-bold text-xl w-full text-white">
-                                Looking for the payment confirmation form?&nbsp;
-                                <a href="https://codesprint.lk/store-checkout" 
-                                    className="text-teal-300 underline">
-                                    Click here
-                                </a>
+                    <div className="p-4 rounded-lg bg-red-700 bg-opacity-40 border border-red-400 border-opacity-50 backdrop-blur-md shadow-lg shadow-neutral-900 my-6">
+                            <h2 className="text-center text-2xl font-bold mb-[20px]">Store is closed!</h2>
+                            <p className="font-bold max-w-[600px] text-center mx-auto">
+                                Codesprint merch store is officially closed now.
+                                We are no longer accepting orders.  Any payments
+                                made from now on will be refunded. 
                             </p>
-                            <p className="font-bold">
-                                Note: We are about to close the store. All payments must be made before
-                                midnight, 3rd June 2024. Any payments made after will be refunded
-                                and orders will not be considered.
+                            <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
+                                Website's functionality is maintained only for archival
+                                purposes.
+                            </p>
+                            <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
+                                Thank you for your support! 
+                            </p>
+                            <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
+                                If you accidentally made a payment after the deadline, please submit your
+                                proof of payment to the&nbsp;
+                                <a href="https://codesprint.lk/store-refund" 
+                                    className="text-teal-300 underline">
+                                        payment refund form
+                                </a>
+                                &nbsp;to claim a refund.
                             </p>
                     </div>
                 </div>
