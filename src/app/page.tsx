@@ -5,7 +5,7 @@ import { Packages as package_list } from "@/db/Packages";
 
 import styles from "../styles/Home.module.css"
 import PackageCard from "@/components/PackageCard";
-import EarlyBirdTimer from "@/components/EarlyBirdTimer";
+import StoreClosingTimer from "@/components/StoreClosingTimer";
 
 export const metadata : Metadata = {
     title: "CodeSprint Store",
@@ -33,32 +33,32 @@ export default function Home() {
         </section>
         <section
             className="proper-padded-container">
-            <div className="mx-auto w-full">
-                <div className="p-10 rounded-2xl bg-gradient-to-r bg-opacity-10 border border-white border-opacity-15 backdrop-blur-md shadow-lg shadow-neutral-900 my-6 flex flex-col items-center space-y-4">
-                    <h2 className="text-center text-4xl font-bold text-white pb-4">Steps to Purchase</h2>
-                    <div>
-                        <ol className="list-decimal list-inside space-y-2 text-white text-xl mb-[30px]">
-                            <li>Choose your desired package from the Celestial Collection.</li>
-                            <li>Customize the size and color to your preference.</li>
-                            <li>Proceed to checkout by clicking &quot;Next.&quot;</li>
-                            <li>Download the invoice for your purchase.</li>
-                            <li>Fill out the form with your invoice details and attach the bank receipt.</li>
-                            <li>You&apos;re all set! You can now go home and place another order.</li>
-                        </ol>
-                        <ul className="font-bold text-xl w-full list-disc list-inside">
-                            <li className="text-white">
-                                Looking for the payment confirmation form?&nbsp;
-                                <a href="https://codesprint.lk/store-checkout" 
+                <div className="mx-auto w-full">
+                    <div className="p-4 rounded-lg bg-red-700 bg-opacity-40 border border-red-400 border-opacity-50 backdrop-blur-md shadow-lg shadow-neutral-900 my-6">
+                            <h2 className="text-center text-2xl font-bold mb-[20px]">Store is closed!</h2>
+                            <p className="font-bold max-w-[600px] text-center mx-auto">
+                                Codesprint merch store is officially closed now.
+                                We are no longer accepting orders.  Any payments
+                                made from now on will be refunded. 
+                            </p>
+                            <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
+                                Website's functionality is maintained only for archival
+                                purposes.
+                            </p>
+                            <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
+                                Thank you for your support! 
+                            </p>
+                            <p className="font-bold max-w-[600px] text-center mx-auto mt-[20px]">
+                                If you accidentally made a payment after the deadline, please submit your
+                                proof of payment to the&nbsp;
+                                <a href="https://codesprint.lk/store-refund" 
                                     className="text-teal-300 underline">
-                                    Click here.
+                                        payment refund form
                                 </a>
-                            </li>
-                        </ul>
+                                &nbsp;to claim a refund.
+                            </p>
                     </div>
                 </div>
-            </div>
-                {/* This is for git */}
-                <EarlyBirdTimer />
 
                 <div className="bg-white bg-opacity-5 border border-white 
                     border-opacity-15 backdrop-blur-md rounded-2xl">

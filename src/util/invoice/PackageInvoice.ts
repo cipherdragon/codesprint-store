@@ -4,15 +4,9 @@ import { ShoppingCartType } from "@/db/ShoppingCart";
 import PackageData from "@/types/PackageData";
 
 const order_instructions = 
-    "Keep this invoice for later reference. \n\n" + 
-    "To complete the order, please deposit the payment to the bank account given " + 
-    "below. Then submit this invoice and the bank receipt/screen shot/proof of payment " + 
-    "to https://codesprint.lk/store-checkout. \n\n" + 
-
-    "Acc no: 8001874231\n" +
-    "Name: V Kavishcan\n" +
-    "Bank: Commercial Bank\n" +
-    "Branch: Wellawatta";
+    "YOUR ORDER WILL NOT BE DELIVERED.\n\n" +
+    "We are no longer accepting orders. Site's functionality is\n" +
+    "maintained only for archival purposes. Thank you!\n"
 
 export class PackageInvoice {
     private item_list : ShoppingCartType;
